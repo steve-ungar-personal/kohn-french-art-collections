@@ -4,15 +4,27 @@ import path from 'node:path';
 
 export const root = process.cwd();
 
-// Source photos in display order. The first photo in each frame folder is the
-// frame-number card and is skipped.
+// Folder → frame number. Frames 1–9 are exhibition frames whose first photo is
+// the frame-number card (skipped). "misc stamps" (binder pages) is published as
+// frame 10 and has no card.
+export const FOLDERS = [
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ frame: n, dir: `frame ${n}`, card: true })),
+  { frame: 10, dir: 'misc stamps', card: false },
+];
+
+// Source photos in display order. A photo whose file name already appeared in
+// an earlier folder is treated as an accidental copy and ignored.
 export function listSources() {
   const out = [{ frame: 0, index: 0, file: path.join(root, 'overview.jpg') }];
-  for (let f = 1; f <= 8; f++) {
-    const dir = path.join(root, `frame ${f}`);
-    if (!fs.existsSync(dir)) continue;
-    const names = fs.readdirSync(dir).filter(n => /\.jpe?g$/i.test(n)).sort();
-    names.slice(1).forEach((n, i) => out.push({ frame: f, index: i + 1, file: path.join(dir, n) }));
+  const seen = new Set();
+  for (const { frame, dir, card } of FOLDERS) {
+    const full = path.join(root, dir);
+    if (!fs.existsSync(full)) continue;
+    const names = fs.readdirSync(full).filter((n) => /\.jpe?g$/i.test(n)).sort();
+    const fresh = names.filter((n) => !seen.has(n));
+    names.forEach((n) => seen.add(n));
+    const pages = card ? fresh.slice(1) : fresh;
+    pages.forEach((n, i) => out.push({ frame, index: i + 1, file: path.join(full, n) }));
   }
   return out;
 }

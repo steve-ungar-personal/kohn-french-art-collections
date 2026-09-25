@@ -12,7 +12,7 @@ const signed = pages.filter((p) => p.kinds.includes('Signed artist’s proof'));
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">An exhibition collection · 1961 – 1969</p>
+        <p class="eyebrow">An exhibition collection · 1960s – 1970s</p>
         <h1>Famous French Arts</h1>
         <p class="sub">French art stamps, proofs and covers, assembled and hand-illustrated by <strong>Milton Kohn</strong> and exhibited internationally by Milton &amp; Janet Kohn.</p>
         <p class="lede">
@@ -28,7 +28,7 @@ const signed = pages.filter((p) => p.kinds.includes('Signed artist’s proof'));
           <div class="stat"><b>{s.pages}</b><span>album pages shown</span></div>
           <div class="stat"><b>{s.signed}</b><span>signed artist’s proofs</span></div>
           <div class="stat"><b>{s.deluxe}</b><span>deluxe proofs</span></div>
-          <div class="stat"><b>{s.issues}</b><span>stamp issues, 1961–69</span></div>
+          <div class="stat"><b>{s.issues}</b><span>French art stamp issues</span></div>
         </div>
       </div>
       <div class="hero-collage" aria-hidden="true">
@@ -69,9 +69,10 @@ const signed = pages.filter((p) => p.kinds.includes('Signed artist’s proof'));
   <section id="frames">
     <div class="wrap">
       <p class="eyebrow">The exhibit</p>
-      <h2>Eight exhibition frames</h2>
+      <h2>Eight exhibition frames and a miscellany</h2>
       <p class="lede">
-        The pages are grouped as they hung in their original exhibition frames. Frames 1–4 are shown here; frames 5–8 will be added as they are photographed.
+        The pages are grouped as they hung in their original exhibition frames. A ninth group gathers loose items and
+        alternate versions of pages, and pages from the Kohns’ stamp binder will follow.
       </p>
       <div class="frames" style="margin-top:28px">
         {frames.map((f) =>
@@ -83,16 +84,16 @@ const signed = pages.filter((p) => p.kinds.includes('Signed artist’s proof'));
                 ))}
               </div>
               <div class="body">
-                <span class="num">Frame {f.number} · {f.pages.length} pages</span>
+                <span class="num">{f.number > 8 ? frameThemes[f.number].title : `Frame ${f.number}`} · {f.pages.length} pages</span>
                 <h3>{frameThemes[f.number].title}</h3>
                 <p>{frameThemes[f.number].detail}</p>
               </div>
             </a>
           ) : (
             <div class="frame-card pending">
-              <div class="thumbs">{f.number}</div>
+              <div class="thumbs">{f.number > 8 ? '…' : f.number}</div>
               <div class="body">
-                <span class="num">Frame {f.number}</span>
+                <span class="num">{f.number > 8 ? frameThemes[f.number].title : `Frame ${f.number}`}</span>
                 <p>Being photographed. Coming soon.</p>
               </div>
             </div>

@@ -15,6 +15,7 @@ export function imageFor(frame: number, index: number) {
     lg: `/images/${slug}-lg.webp`,
     width: meta?.width ?? 2200,
     height: meta?.height ?? 2700,
+    blurred: Boolean(meta && 'blurred' in meta && meta.blurred),
   };
 }
 

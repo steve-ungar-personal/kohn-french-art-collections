@@ -17,11 +17,11 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
 ---
 <Base title={`Frame ${n}: ${heading}`} description={`${detail}. ${frame.pages.length} album pages from the Kohn “Famous French Arts” exhibition.`} image={imageFor(n, 2).md} section="frames">
   <div class="wrap">
-    <nav class="crumbs"><a href="/">Home</a> / <a href="/#frames">Frames</a> / Frame {n}</nav>
+    <nav class="crumbs"><a href="/">Home</a> / <a href="/#frames">Frames</a> / {n <= 8 ? `Frame ${n}` : heading}</nav>
     <header style="padding: 28px 0 36px; max-width: 760px;">
-      <p class="eyebrow">Exhibition frame {n} of 8</p>
+      <p class="eyebrow">{n <= 8 ? `Exhibition frame ${n} of 8` : n === 9 ? 'Miscellany' : 'Binder pages'}</p>
       <h1>{heading}</h1>
-      <p class="lede">{detail}. {frame.pages.length} pages, shown in the order they were hung.</p>
+      <p class="lede">{detail}. {frame.pages.length} pages{n <= 8 ? ', shown in the order they were hung' : ''}.</p>
     </header>
 
     <div class="page-grid">

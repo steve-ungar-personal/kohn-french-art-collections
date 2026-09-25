@@ -4,6 +4,7 @@
 // `research` is added context, backed by `sources` and the linked stamp records.
 
 import { S, type Source } from './sources';
+import { pages5to9, frameThemes5to9 } from './pages-5-9';
 
 export type Kind =
   | 'Introduction'
@@ -846,14 +847,19 @@ export const pages: AlbumPage[] = [
     stamps: ['vix'],
     sources: [S.proofs, S.stampproofs],
   },
+  ...pages5to9,
 ];
 
-export const frames = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({
+// Frames 1–8 are the exhibition frames, 9 is a miscellany, and 10 holds the
+// binder pages from the "misc stamps" folder once they are photographed.
+export const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
   number: n,
   pages: pages.filter((p) => p.frame === n),
 }));
 
 export const frameThemes: Record<number, { title: string; detail: string }> = {
+  ...frameThemes5to9,
+  10: { title: 'Binder pages', detail: 'Additional stamps from the Kohns’ stock binder' },
   1: { title: 'Matisse & Braque', detail: 'The first “Musée Imaginaire” stamps of 1961' },
   2: { title: 'Cathedrals, glass & fresco', detail: 'Saint-Savin, Sens, Chartres and Notre-Dame, with Daumier to close' },
   3: { title: 'Masters old & new', detail: 'Daumier, the Apocalypse Tapestry, Conches, Clouet, Rousseau and La Fresnaye' },

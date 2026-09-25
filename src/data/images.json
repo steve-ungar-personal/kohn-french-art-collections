@@ -109,7 +109,8 @@
     "slug": "frame-2/01",
     "source": "frame 2\\PXL_20260925_191030657.MP.jpg",
     "width": 2085,
-    "height": 2438
+    "height": 2438,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -117,7 +118,8 @@
     "slug": "frame-2/02",
     "source": "frame 2\\PXL_20260925_191039464.MP.jpg",
     "width": 2145,
-    "height": 2569
+    "height": 2569,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -125,7 +127,8 @@
     "slug": "frame-2/03",
     "source": "frame 2\\PXL_20260925_191048890.MP.jpg",
     "width": 2075,
-    "height": 2609
+    "height": 2609,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -133,7 +136,8 @@
     "slug": "frame-2/04",
     "source": "frame 2\\PXL_20260925_191058770.MP.jpg",
     "width": 2115,
-    "height": 2548
+    "height": 2548,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -141,7 +145,8 @@
     "slug": "frame-2/05",
     "source": "frame 2\\PXL_20260925_191108939.MP.jpg",
     "width": 2125,
-    "height": 2629
+    "height": 2629,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -149,7 +154,8 @@
     "slug": "frame-2/06",
     "source": "frame 2\\PXL_20260925_191122167.MP.jpg",
     "width": 2095,
-    "height": 2538
+    "height": 2538,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -157,7 +163,8 @@
     "slug": "frame-2/07",
     "source": "frame 2\\PXL_20260925_191136044.MP.jpg",
     "width": 2145,
-    "height": 2639
+    "height": 2639,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -165,7 +172,8 @@
     "slug": "frame-2/08",
     "source": "frame 2\\PXL_20260925_191146894.MP.jpg",
     "width": 2095,
-    "height": 2528
+    "height": 2528,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -173,7 +181,8 @@
     "slug": "frame-2/09",
     "source": "frame 2\\PXL_20260925_191157588.MP.jpg",
     "width": 2145,
-    "height": 2609
+    "height": 2609,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -181,7 +190,8 @@
     "slug": "frame-2/10",
     "source": "frame 2\\PXL_20260925_191207367.MP.jpg",
     "width": 2145,
-    "height": 2589
+    "height": 2589,
+    "blurred": false
   },
   {
     "frame": 2,
@@ -189,7 +199,8 @@
     "slug": "frame-2/11",
     "source": "frame 2\\PXL_20260925_191215972.MP.jpg",
     "width": 2135,
-    "height": 2619
+    "height": 2619,
+    "blurred": true
   },
   {
     "frame": 2,
@@ -197,7 +208,8 @@
     "slug": "frame-2/12",
     "source": "frame 2\\PXL_20260925_191230803.MP.jpg",
     "width": 2145,
-    "height": 2690
+    "height": 2690,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -205,7 +217,8 @@
     "slug": "frame-3/01",
     "source": "frame 3\\PXL_20260925_191251967.MP.jpg",
     "width": 2145,
-    "height": 2548
+    "height": 2548,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -213,7 +226,8 @@
     "slug": "frame-3/02",
     "source": "frame 3\\PXL_20260925_191300331.MP.jpg",
     "width": 2105,
-    "height": 2579
+    "height": 2579,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -221,7 +235,8 @@
     "slug": "frame-3/03",
     "source": "frame 3\\PXL_20260925_191308697.MP.jpg",
     "width": 2145,
-    "height": 2669
+    "height": 2669,
+    "blurred": true
   },
   {
     "frame": 3,
@@ -229,7 +244,8 @@
     "slug": "frame-3/04",
     "source": "frame 3\\PXL_20260925_191318669.MP.jpg",
     "width": 2145,
-    "height": 2649
+    "height": 2649,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -237,7 +253,8 @@
     "slug": "frame-3/05",
     "source": "frame 3\\PXL_20260925_191327347.MP.jpg",
     "width": 2145,
-    "height": 2548
+    "height": 2548,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -245,7 +262,8 @@
     "slug": "frame-3/06",
     "source": "frame 3\\PXL_20260925_191346947.MP.jpg",
     "width": 2105,
-    "height": 2488
+    "height": 2488,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -253,7 +271,8 @@
     "slug": "frame-3/07",
     "source": "frame 3\\PXL_20260925_191355845.MP.jpg",
     "width": 2145,
-    "height": 2680
+    "height": 2680,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -261,7 +280,8 @@
     "slug": "frame-3/08",
     "source": "frame 3\\PXL_20260925_191405140.MP.jpg",
     "width": 2145,
-    "height": 2720
+    "height": 2720,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -269,7 +289,8 @@
     "slug": "frame-3/09",
     "source": "frame 3\\PXL_20260925_191413323.MP.jpg",
     "width": 2115,
-    "height": 2690
+    "height": 2690,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -277,7 +298,8 @@
     "slug": "frame-3/10",
     "source": "frame 3\\PXL_20260925_191423763.MP.jpg",
     "width": 2125,
-    "height": 2639
+    "height": 2639,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -285,7 +307,8 @@
     "slug": "frame-3/11",
     "source": "frame 3\\PXL_20260925_191431726.MP.jpg",
     "width": 2145,
-    "height": 2669
+    "height": 2669,
+    "blurred": false
   },
   {
     "frame": 3,
@@ -293,7 +316,8 @@
     "slug": "frame-3/12",
     "source": "frame 3\\PXL_20260925_191439839.MP.jpg",
     "width": 2135,
-    "height": 2710
+    "height": 2710,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -301,7 +325,8 @@
     "slug": "frame-4/01",
     "source": "frame 4\\PXL_20260925_191459953.MP.jpg",
     "width": 2145,
-    "height": 2629
+    "height": 2629,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -309,7 +334,8 @@
     "slug": "frame-4/02",
     "source": "frame 4\\PXL_20260925_191511018.MP.jpg",
     "width": 2145,
-    "height": 2639
+    "height": 2639,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -317,7 +343,8 @@
     "slug": "frame-4/03",
     "source": "frame 4\\PXL_20260925_191530507.MP.jpg",
     "width": 2145,
-    "height": 2639
+    "height": 2639,
+    "blurred": true
   },
   {
     "frame": 4,
@@ -325,7 +352,8 @@
     "slug": "frame-4/04",
     "source": "frame 4\\PXL_20260925_191539609.MP.jpg",
     "width": 2145,
-    "height": 2669
+    "height": 2669,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -333,7 +361,8 @@
     "slug": "frame-4/05",
     "source": "frame 4\\PXL_20260925_191548888.MP.jpg",
     "width": 2145,
-    "height": 2710
+    "height": 2710,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -341,7 +370,8 @@
     "slug": "frame-4/06",
     "source": "frame 4\\PXL_20260925_191613017.MP.jpg",
     "width": 2145,
-    "height": 2518
+    "height": 2518,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -349,7 +379,8 @@
     "slug": "frame-4/07",
     "source": "frame 4\\PXL_20260925_191621912.MP.jpg",
     "width": 2145,
-    "height": 2538
+    "height": 2538,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -357,7 +388,8 @@
     "slug": "frame-4/08",
     "source": "frame 4\\PXL_20260925_191629602.MP.jpg",
     "width": 2145,
-    "height": 2690
+    "height": 2690,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -365,7 +397,8 @@
     "slug": "frame-4/09",
     "source": "frame 4\\PXL_20260925_191637100.MP.jpg",
     "width": 2135,
-    "height": 2720
+    "height": 2720,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -373,7 +406,8 @@
     "slug": "frame-4/10",
     "source": "frame 4\\PXL_20260925_191646458.MP.jpg",
     "width": 2145,
-    "height": 2609
+    "height": 2609,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -381,7 +415,8 @@
     "slug": "frame-4/11",
     "source": "frame 4\\PXL_20260925_191655893.MP.jpg",
     "width": 2145,
-    "height": 2700
+    "height": 2700,
+    "blurred": false
   },
   {
     "frame": 4,
@@ -389,6 +424,583 @@
     "slug": "frame-4/12",
     "source": "frame 4\\PXL_20260925_191708382.MP.jpg",
     "width": 2135,
-    "height": 2579
+    "height": 2579,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 1,
+    "slug": "frame-5/01",
+    "source": "frame 5\\PXL_20260925_195324810.MP.jpg",
+    "width": 2105,
+    "height": 2599,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 2,
+    "slug": "frame-5/02",
+    "source": "frame 5\\PXL_20260925_195352271.MP.jpg",
+    "width": 2145,
+    "height": 2609,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 3,
+    "slug": "frame-5/03",
+    "source": "frame 5\\PXL_20260925_195412067.MP.jpg",
+    "width": 2105,
+    "height": 2458,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 4,
+    "slug": "frame-5/04",
+    "source": "frame 5\\PXL_20260925_195422238.MP.jpg",
+    "width": 2145,
+    "height": 2659,
+    "blurred": true
+  },
+  {
+    "frame": 5,
+    "index": 5,
+    "slug": "frame-5/05",
+    "source": "frame 5\\PXL_20260925_195437305.MP.jpg",
+    "width": 2145,
+    "height": 2629,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 6,
+    "slug": "frame-5/06",
+    "source": "frame 5\\PXL_20260925_195445772.MP.jpg",
+    "width": 2145,
+    "height": 2730,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 7,
+    "slug": "frame-5/07",
+    "source": "frame 5\\PXL_20260925_195454217.MP.jpg",
+    "width": 2145,
+    "height": 2770,
+    "blurred": true
+  },
+  {
+    "frame": 5,
+    "index": 8,
+    "slug": "frame-5/08",
+    "source": "frame 5\\PXL_20260925_195502411.MP.jpg",
+    "width": 2145,
+    "height": 2760,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 9,
+    "slug": "frame-5/09",
+    "source": "frame 5\\PXL_20260925_195510410.MP.jpg",
+    "width": 2145,
+    "height": 2740,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 10,
+    "slug": "frame-5/10",
+    "source": "frame 5\\PXL_20260925_195518686.MP.jpg",
+    "width": 2145,
+    "height": 2629,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 11,
+    "slug": "frame-5/11",
+    "source": "frame 5\\PXL_20260925_195528361.MP.jpg",
+    "width": 2145,
+    "height": 2669,
+    "blurred": false
+  },
+  {
+    "frame": 5,
+    "index": 12,
+    "slug": "frame-5/12",
+    "source": "frame 5\\PXL_20260925_195538450.MP.jpg",
+    "width": 2135,
+    "height": 2609,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 1,
+    "slug": "frame-6/01",
+    "source": "frame 6\\PXL_20260925_195556492.MP.jpg",
+    "width": 2135,
+    "height": 2589,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 2,
+    "slug": "frame-6/02",
+    "source": "frame 6\\PXL_20260925_195606832.MP.jpg",
+    "width": 2145,
+    "height": 2498,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 3,
+    "slug": "frame-6/03",
+    "source": "frame 6\\PXL_20260925_195617395.MP.jpg",
+    "width": 2075,
+    "height": 2508,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 4,
+    "slug": "frame-6/04",
+    "source": "frame 6\\PXL_20260925_195628578.MP.jpg",
+    "width": 2125,
+    "height": 2518,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 5,
+    "slug": "frame-6/05",
+    "source": "frame 6\\PXL_20260925_195638533.MP.jpg",
+    "width": 2085,
+    "height": 2528,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 6,
+    "slug": "frame-6/06",
+    "source": "frame 6\\PXL_20260925_195649779.MP.jpg",
+    "width": 2055,
+    "height": 2548,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 7,
+    "slug": "frame-6/07",
+    "source": "frame 6\\PXL_20260925_195659613.MP.jpg",
+    "width": 2055,
+    "height": 2448,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 8,
+    "slug": "frame-6/08",
+    "source": "frame 6\\PXL_20260925_195709235.MP.jpg",
+    "width": 2085,
+    "height": 2498,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 9,
+    "slug": "frame-6/09",
+    "source": "frame 6\\PXL_20260925_195718694.MP.jpg",
+    "width": 2065,
+    "height": 2538,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 10,
+    "slug": "frame-6/10",
+    "source": "frame 6\\PXL_20260925_195729962.MP.jpg",
+    "width": 2115,
+    "height": 2448,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 11,
+    "slug": "frame-6/11",
+    "source": "frame 6\\PXL_20260925_195738139.MP.jpg",
+    "width": 2075,
+    "height": 2518,
+    "blurred": false
+  },
+  {
+    "frame": 6,
+    "index": 12,
+    "slug": "frame-6/12",
+    "source": "frame 6\\PXL_20260925_195748329.MP.jpg",
+    "width": 2115,
+    "height": 2417,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 1,
+    "slug": "frame-7/01",
+    "source": "frame 7\\PXL_20260925_195804675.MP.jpg",
+    "width": 2115,
+    "height": 2569,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 2,
+    "slug": "frame-7/02",
+    "source": "frame 7\\PXL_20260925_195839621.MP.jpg",
+    "width": 2034,
+    "height": 2417,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 3,
+    "slug": "frame-7/03",
+    "source": "frame 7\\PXL_20260925_195931311.MP.jpg",
+    "width": 2044,
+    "height": 2488,
+    "blurred": true
+  },
+  {
+    "frame": 7,
+    "index": 4,
+    "slug": "frame-7/04",
+    "source": "frame 7\\PXL_20260925_195952696.MP.jpg",
+    "width": 2115,
+    "height": 2508,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 5,
+    "slug": "frame-7/05",
+    "source": "frame 7\\PXL_20260925_200005301.MP.jpg",
+    "width": 2085,
+    "height": 2548,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 6,
+    "slug": "frame-7/06",
+    "source": "frame 7\\PXL_20260925_200015192.MP.jpg",
+    "width": 2055,
+    "height": 2438,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 7,
+    "slug": "frame-7/07",
+    "source": "frame 7\\PXL_20260925_200022523.MP.jpg",
+    "width": 2135,
+    "height": 2468,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 8,
+    "slug": "frame-7/08",
+    "source": "frame 7\\PXL_20260925_200032071.MP.jpg",
+    "width": 1994,
+    "height": 2518,
+    "blurred": true
+  },
+  {
+    "frame": 7,
+    "index": 9,
+    "slug": "frame-7/09",
+    "source": "frame 7\\PXL_20260925_200041039.MP.jpg",
+    "width": 2105,
+    "height": 2548,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 10,
+    "slug": "frame-7/10",
+    "source": "frame 7\\PXL_20260925_200049066.MP.jpg",
+    "width": 2055,
+    "height": 2518,
+    "blurred": true
+  },
+  {
+    "frame": 7,
+    "index": 11,
+    "slug": "frame-7/11",
+    "source": "frame 7\\PXL_20260925_200058139.MP.jpg",
+    "width": 2044,
+    "height": 2377,
+    "blurred": false
+  },
+  {
+    "frame": 7,
+    "index": 12,
+    "slug": "frame-7/12",
+    "source": "frame 7\\PXL_20260925_200106175.MP.jpg",
+    "width": 2075,
+    "height": 2518,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 1,
+    "slug": "frame-8/01",
+    "source": "frame 8\\PXL_20260925_200152251.MP.jpg",
+    "width": 2004,
+    "height": 2428,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 2,
+    "slug": "frame-8/02",
+    "source": "frame 8\\PXL_20260925_200201522.MP.jpg",
+    "width": 2065,
+    "height": 2317,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 3,
+    "slug": "frame-8/03",
+    "source": "frame 8\\PXL_20260925_200209621.MP.jpg",
+    "width": 2055,
+    "height": 2397,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 4,
+    "slug": "frame-8/04",
+    "source": "frame 8\\PXL_20260925_200220381.MP.jpg",
+    "width": 2055,
+    "height": 2458,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 5,
+    "slug": "frame-8/05",
+    "source": "frame 8\\PXL_20260925_200227675.MP.jpg",
+    "width": 2065,
+    "height": 2478,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 6,
+    "slug": "frame-8/06",
+    "source": "frame 8\\PXL_20260925_200240446.MP.jpg",
+    "width": 2105,
+    "height": 2407,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 7,
+    "slug": "frame-8/07",
+    "source": "frame 8\\PXL_20260925_200249413.MP.jpg",
+    "width": 2135,
+    "height": 2458,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 8,
+    "slug": "frame-8/08",
+    "source": "frame 8\\PXL_20260925_200432603.MP.jpg",
+    "width": 1954,
+    "height": 2387,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 9,
+    "slug": "frame-8/09",
+    "source": "frame 8\\PXL_20260925_200443406.MP.jpg",
+    "width": 2055,
+    "height": 2498,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 10,
+    "slug": "frame-8/10",
+    "source": "frame 8\\PXL_20260925_200450765.MP.jpg",
+    "width": 2014,
+    "height": 2407,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 11,
+    "slug": "frame-8/11",
+    "source": "frame 8\\PXL_20260925_200502685.MP.jpg",
+    "width": 2095,
+    "height": 2428,
+    "blurred": false
+  },
+  {
+    "frame": 8,
+    "index": 12,
+    "slug": "frame-8/12",
+    "source": "frame 8\\PXL_20260925_200510410.MP.jpg",
+    "width": 1934,
+    "height": 2387,
+    "blurred": true
+  },
+  {
+    "frame": 9,
+    "index": 1,
+    "slug": "frame-9/01",
+    "source": "frame 9\\PXL_20260925_200604138.MP.jpg",
+    "width": 1994,
+    "height": 2417,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 2,
+    "slug": "frame-9/02",
+    "source": "frame 9\\PXL_20260925_200613104.MP.jpg",
+    "width": 2085,
+    "height": 2528,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 3,
+    "slug": "frame-9/03",
+    "source": "frame 9\\PXL_20260925_200621962.MP.jpg",
+    "width": 2014,
+    "height": 2448,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 4,
+    "slug": "frame-9/04",
+    "source": "frame 9\\PXL_20260925_200644434.MP.jpg",
+    "width": 2145,
+    "height": 2559,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 5,
+    "slug": "frame-9/05",
+    "source": "frame 9\\PXL_20260925_200653277.MP.jpg",
+    "width": 1974,
+    "height": 2367,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 6,
+    "slug": "frame-9/06",
+    "source": "frame 9\\PXL_20260925_200701935.MP.jpg",
+    "width": 2004,
+    "height": 2377,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 7,
+    "slug": "frame-9/07",
+    "source": "frame 9\\PXL_20260925_200736030.MP.jpg",
+    "width": 1974,
+    "height": 2448,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 8,
+    "slug": "frame-9/08",
+    "source": "frame 9\\PXL_20260925_200745095.MP.jpg",
+    "width": 2125,
+    "height": 2548,
+    "blurred": true
+  },
+  {
+    "frame": 9,
+    "index": 9,
+    "slug": "frame-9/09",
+    "source": "frame 9\\PXL_20260925_200916330.MP.jpg",
+    "width": 1785,
+    "height": 2074,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 10,
+    "slug": "frame-9/10",
+    "source": "frame 9\\PXL_20260925_200924937.MP.jpg",
+    "width": 2080,
+    "height": 2494,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 11,
+    "slug": "frame-9/11",
+    "source": "frame 9\\PXL_20260925_200936202.MP.jpg",
+    "width": 2108,
+    "height": 2358,
+    "blurred": true
+  },
+  {
+    "frame": 9,
+    "index": 12,
+    "slug": "frame-9/12",
+    "source": "frame 9\\PXL_20260925_200945594.MP.jpg",
+    "width": 2001,
+    "height": 2329,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 13,
+    "slug": "frame-9/13",
+    "source": "frame 9\\PXL_20260925_200959280.MP.jpg",
+    "width": 1944,
+    "height": 2327,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 14,
+    "slug": "frame-9/14",
+    "source": "frame 9\\PXL_20260925_201044288.MP.jpg",
+    "width": 2621,
+    "height": 2041,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 15,
+    "slug": "frame-9/15",
+    "source": "frame 9\\PXL_20260925_201109387.MP.jpg",
+    "width": 2268,
+    "height": 2097,
+    "blurred": false
+  },
+  {
+    "frame": 9,
+    "index": 16,
+    "slug": "frame-9/16",
+    "source": "frame 9\\PXL_20260925_201117326.MP.jpg",
+    "width": 1682,
+    "height": 2407,
+    "blurred": false
   }
 ]

@@ -29,6 +29,9 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
           </div>
         </button>
         <p class="hint">Click the page to view full size and zoom in.</p>
+        {img.blurred && (
+          <p class="privacy-note">Addressee names and addresses are blurred in this online image for privacy. They are not blurred on the actual album page.</p>
+        )}
       </div>
 
       <div>

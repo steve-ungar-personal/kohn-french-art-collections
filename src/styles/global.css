@@ -160,6 +160,7 @@ section { padding: 56px 0; }
 .viewer button { all: unset; cursor: zoom-in; display: block; width: 100%; }
 .viewer button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
 .viewer .mounted img { width: 100%; }
+.viewer .privacy-note { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); background: var(--paper-2); border-left: 3px solid var(--rose); padding: 8px 12px; margin: 12px 0 0; }
 .viewer .hint { font-family: var(--sans); font-size: 0.8rem; color: var(--ink-soft); margin-top: 10px; text-align: center; }
 .detail h1 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
 .detail .summary { font-size: 1.15rem; color: var(--ink-soft); }

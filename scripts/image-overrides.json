@@ -1,0 +1,18 @@
+{
+  "_note": "Per-page image fixes. crop: [x,y,w,h] fractions of the source photo. rotate: degrees. blurMd: [x,y,w,h] boxes in pixels of the 1600px-wide upright page, used to hide addressee names and addresses on covers.",
+  "frame-2/11": { "blurMd": [[690, 1080, 590, 260]] },
+  "frame-3/03": { "blurMd": [[330, 1060, 440, 250]] },
+  "frame-4/03": { "blurMd": [[820, 1070, 560, 150]] },
+  "frame-5/04": { "blurMd": [[890, 1295, 470, 175]] },
+  "frame-5/07": { "blurMd": [[610, 1055, 745, 145]] },
+  "frame-7/03": { "blurMd": [[890, 1110, 380, 190]] },
+  "frame-7/08": { "blurMd": [[650, 1042, 600, 225]] },
+  "frame-7/10": { "blurMd": [[595, 970, 400, 210]] },
+  "frame-8/12": { "blurMd": [[355, 965, 600, 345]] },
+  "frame-9/07": { "rotate": 90 },
+  "frame-9/08": { "rotate": 90, "blurMd": [[890, 1200, 430, 150]] },
+  "frame-9/11": { "blurMd": [[400, 1160, 790, 440]] },
+  "frame-9/14": { "crop": [0.09, 0.03, 0.65, 0.9], "rotate": 0 },
+  "frame-9/15": { "crop": [0.13, 0.0, 0.52, 1.0], "rotate": 90 },
+  "frame-9/16": { "rotate": 90 }
+}
