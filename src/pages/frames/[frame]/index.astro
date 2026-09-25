@@ -1,0 +1,47 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { frames, frameThemes } from '../../../data/pages';
+import { imageFor, pageHref, frameHref } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return frames.filter((f) => f.pages.length).map((f) => ({ params: { frame: String(f.number) } }));
+}
+
+const n = Number(Astro.params.frame);
+const frame = frames.find((f) => f.number === n)!;
+const { title: heading, detail } = frameThemes[n];
+const shown = frames.filter((f) => f.pages.length).map((f) => f.number);
+const prev = shown[shown.indexOf(n) - 1];
+const next = shown[shown.indexOf(n) + 1];
+const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour proof'];
+---
+<Base title={`Frame ${n}: ${heading}`} description={`${detail}. ${frame.pages.length} album pages from the Kohn “Famous French Arts” exhibition.`} image={imageFor(n, 2).md} section="frames">
+  <div class="wrap">
+    <nav class="crumbs"><a href="/">Home</a> / <a href="/#frames">Frames</a> / Frame {n}</nav>
+    <header style="padding: 28px 0 36px; max-width: 760px;">
+      <p class="eyebrow">Exhibition frame {n} of 8</p>
+      <h1>{heading}</h1>
+      <p class="lede">{detail}. {frame.pages.length} pages, shown in the order they were hung.</p>
+    </header>
+
+    <div class="page-grid">
+      {frame.pages.map((p) => (
+        <a class="page-card" href={pageHref(p)}>
+          <div class="img"><img src={imageFor(p.frame, p.index).thumb} alt="" width="640" height="780" loading="lazy" /></div>
+          <div class="meta">
+            <span class="n">Page {p.index}</span>
+            <h3>{p.title}</h3>
+            <ul class="chips">
+              {p.kinds.slice(0, 3).map((k) => <li class={`chip ${proofKinds.includes(k) ? 'k-proof' : ''}`}>{k}</li>)}
+            </ul>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <nav class="pager" style="margin-top:48px">
+      <div>{prev && <a href={frameHref(prev)}><small>← Previous frame</small>Frame {prev}</a>}</div>
+      <div class="next">{next && <a href={frameHref(next)}><small>Next frame →</small>Frame {next}</a>}</div>
+    </nav>
+  </div>
+</Base>

@@ -1,0 +1,139 @@
+---
+import Base from '../layouts/Base.astro';
+import { pages } from '../data/pages';
+import { stamps } from '../data/stamps';
+import { S } from '../data/sources';
+import { pageHref } from '../lib/site';
+
+const glossary = [
+  {
+    term: 'Signed artist’s proof',
+    fr: 'épreuve d’artiste signée',
+    text: 'An impression pulled on a hand press from the engraver’s finished die, in very small numbers, and signed in pencil by the engraver. Most carry the blind-embossed “Contrôle” seal of the government printing works. Some show the design in a single colour, others in full colour, and a few record an unfinished state of the engraving.',
+    example: [1, 3],
+  },
+  {
+    term: 'Deluxe proof',
+    fr: 'épreuve de luxe',
+    text: 'A card with the stamp printed at its centre in the issued colours, without perforations, made in a few hundred copies and traditionally given as official gifts. In this collection they carry the imprint of the Atelier de Fabrication des Timbres-Poste, Paris.',
+    example: [1, 4],
+  },
+  {
+    term: 'Trial colour proof',
+    fr: 'essai de couleur',
+    text: 'Imperforate impressions in colour schemes that were tried and not adopted, used by the post office to choose the final colours of a design.',
+    example: [2, 1],
+  },
+  {
+    term: 'First day cover',
+    fr: 'enveloppe premier jour',
+    text: 'An envelope, usually with a printed or engraved illustration (the cachet), carrying the new stamp cancelled on its first day of issue. For these art stamps the first day was often held in a town linked to the artist or the monument.',
+    example: [1, 2],
+  },
+  {
+    term: 'Maximum card',
+    fr: 'carte maximum',
+    text: 'A picture postcard of the subject with the matching stamp placed on the picture side and cancelled with a related postmark, ideally on the first day. Collecting them, maximaphily, is a recognised exhibition class.',
+    example: [1, 6],
+  },
+  {
+    term: 'Commercial cover',
+    fr: 'lettre commerciale',
+    text: 'An envelope that really went through the post, often registered or sent by airmail, showing the stamp in ordinary use with the other stamps and postmarks of its day.',
+    example: [3, 3],
+  },
+  {
+    term: 'Varieties',
+    fr: 'variétés',
+    text: 'Copies that differ from the normal stamp, such as colour shades, a colour missing or shifted, or ink faults. Kohn explains each one with a hand-drawn enlargement and red arrows.',
+    example: [2, 10],
+  },
+  {
+    term: 'Hand-drawn cancels & sketches',
+    fr: 'dessins originaux',
+    text: 'Kohn’s own pen-and-ink copies of the first-day postmarks, and colour-pencil sketches of the places and crafts behind each stamp. They are unique to this exhibit.',
+    example: [2, 6],
+  },
+];
+
+const allSources = new Map<string, string>();
+Object.values(S).forEach((s) => allSources.set(s.url, s.label));
+pages.forEach((p) => p.sources.forEach((s) => allSources.set(s.url, s.label)));
+const stampList = Object.values(stamps).sort((a, b) => a.yvert.localeCompare(b.yvert));
+---
+<Base title="Guide to the collection" description="How to read the Kohn album pages: artist’s proofs, deluxe proofs, first day covers, maximum cards and more, with the research sources used on this site." section="guide">
+  <div class="wrap">
+    <header style="padding: 48px 0 24px; max-width: 760px;">
+      <p class="eyebrow">Guide</p>
+      <h1>How to read an album page</h1>
+      <p class="lede">
+        Most pages follow one stamp through its life, from the engraver’s proof to the letter in the post. These are the kinds of
+        material you will meet in the frames.
+      </p>
+    </header>
+
+    <div class="gloss">
+      {glossary.map((g) => {
+        const target = pages.find((p) => p.frame === g.example[0] && p.index === g.example[1])!;
+        return (
+          <article>
+            <h3>{g.term}</h3>
+            <p style="font-style:italic;color:var(--ink-soft);margin-bottom:8px">{g.fr}</p>
+            <p>{g.text}</p>
+            <p style="margin-top:12px;font-family:var(--sans);font-size:.85rem"><a href={pageHref(target)}>See an example: Frame {target.frame}, page {target.index} →</a></p>
+          </article>
+        );
+      })}
+    </div>
+
+    <section>
+      <div class="split">
+        <div class="prose">
+          <p class="eyebrow">The stamps</p>
+          <h2>Issues represented</h2>
+          <p>
+            Catalogue numbers follow <strong>Yvert &amp; Tellier</strong>, the standard French catalogue. Most issues belong to the fine-art
+            series launched in 1961, which collectors call the <em>Musée Imaginaire</em>. Dates, engravers and printing figures come from
+            the per-stamp entries on Phil-Ouest, a French philatelic reference site.
+          </p>
+        </div>
+        <div>
+          <table style="width:100%;border-collapse:collapse;font-size:.95rem">
+            <thead>
+              <tr style="text-align:left;font-family:var(--sans);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)">
+                <th style="padding:6px 8px;border-bottom:1px solid var(--rule)">Y&amp;T</th>
+                <th style="padding:6px 8px;border-bottom:1px solid var(--rule)">Year</th>
+                <th style="padding:6px 8px;border-bottom:1px solid var(--rule)">Subject</th>
+              </tr>
+            </thead>
+            <tbody>
+              {stampList.map((s) => (
+                <tr>
+                  <td style="padding:6px 8px;border-bottom:1px solid var(--rule)"><a href={s.source} rel="noopener">{s.yvert}</a></td>
+                  <td style="padding:6px 8px;border-bottom:1px solid var(--rule)">{s.year}</td>
+                  <td style="padding:6px 8px;border-bottom:1px solid var(--rule)">{s.title}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" style="padding-top:0">
+      <p class="eyebrow">Research</p>
+      <h2>Notes &amp; sources</h2>
+      <div class="prose">
+        <p>
+          The descriptions were written from close study of each photographed page: the stamps, the postmarks, the printed and
+          pencilled marks, and Kohn’s own lettering. Where Kohn’s notes differ from published records, both are given. Where
+          something is inferred, such as the likely location of an unlabelled sketch, the text says so.
+        </p>
+      </div>
+      <ol class="sources" style="columns: 2 320px; column-gap: 32px; margin-top: 16px">
+        {[...allSources].map(([url, label]) => <li><a href={url} rel="noopener">{label}</a></li>)}
+        {stampList.map((s) => <li><a href={s.source} rel="noopener">Phil-Ouest — Y&amp;T {s.yvert}, {s.title}</a></li>)}
+      </ol>
+    </section>
+  </div>
+</Base>

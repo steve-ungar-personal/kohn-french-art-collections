@@ -1,0 +1,158 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { pages } from '../../../data/pages';
+import { stamps } from '../../../data/stamps';
+import { imageFor, pageHref, frameHref, neighbours, pad } from '../../../lib/site';
+
+export function getStaticPaths() {
+  return pages.map((p) => ({ params: { frame: String(p.frame), page: pad(p.index) }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const img = imageFor(p.frame, p.index);
+const { prev, next } = neighbours(p);
+const records = p.stamps.map((id) => stamps[id]).filter(Boolean);
+const strip = (s: string) => s.replace(/<[^>]+>/g, '');
+const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour proof'];
+---
+<Base title={p.title} description={strip(p.summary)} image={img.md} section="frames">
+  <div class="wrap">
+    <nav class="crumbs">
+      <a href="/">Home</a> / <a href={frameHref(p.frame)}>Frame {p.frame}</a> / Page {p.index}
+    </nav>
+
+    <article class="detail">
+      <div class="viewer">
+        <button type="button" data-zoom={img.lg} aria-label="View full-size image">
+          <div class="mounted">
+            <img src={img.md} alt={`Album page: ${p.title}`} width={img.width} height={img.height} />
+          </div>
+        </button>
+        <p class="hint">Click the page to view full size and zoom in.</p>
+      </div>
+
+      <div>
+        <p class="eyebrow">Frame {p.frame} · Page {p.index}</p>
+        <h1>{p.title}</h1>
+        <ul class="chips" style="margin-bottom:18px">
+          {p.kinds.map((k) => <li class={`chip ${proofKinds.includes(k) ? 'k-proof' : ''}`}>{k}</li>)}
+        </ul>
+        <p class="summary" set:html={p.summary} />
+
+        <h2>On this page</h2>
+        <ul class="contents">
+          {p.contents.map((c) => <li set:html={c} />)}
+        </ul>
+
+        {p.kohn && (
+          <>
+            <h2>Kohn’s notes</h2>
+            <blockquote class="hand">
+              <p set:html={p.kohn} />
+              <cite>Hand-lettered on the page by Milton Kohn{p.kohn.startsWith('“') ? '' : ' (paraphrased)'}</cite>
+            </blockquote>
+          </>
+        )}
+
+        <h2>Background</h2>
+        <div class="prose">
+          {p.research.map((r) => <p set:html={r} />)}
+        </div>
+
+        {records.length > 0 && (
+          <>
+            <h2>Stamp record</h2>
+            {records.map((s) => (
+              <section class="record" style="padding:0">
+                <h3>{s.title}</h3>
+                <dl>
+                  <dt>Catalogue</dt><dd>Yvert &amp; Tellier {s.yvert} · {s.value} · {s.year}</dd>
+                  <dt>Artwork</dt><dd>{s.artwork}</dd>
+                  <dt>Artist</dt><dd>{s.artist}</dd>
+                  <dt>Engraver</dt><dd>{s.engraver}</dd>
+                  <dt>Printing</dt><dd>{s.printing}</dd>
+                  <dt>First day</dt><dd>{s.firstDay}</dd>
+                  {s.generalSale && <><dt>General sale</dt><dd>{s.generalSale}</dd></>}
+                  {s.printRun && <><dt>Printed</dt><dd>{s.printRun}</dd></>}
+                </dl>
+                <p class="src">Source: <a href={s.source} rel="noopener">Phil-Ouest catalogue entry</a></p>
+              </section>
+            ))}
+          </>
+        )}
+
+        {p.sources.length > 0 && (
+          <>
+            <h2>Sources</h2>
+            <ol class="sources">
+              {p.sources.map((s) => <li><a href={s.url} rel="noopener">{s.label}</a></li>)}
+            </ol>
+          </>
+        )}
+
+        <nav class="pager" style="margin-top:36px">
+          <div>{prev && <a href={pageHref(prev)} data-prev><small>← Frame {prev.frame}, page {prev.index}</small>{prev.title}</a>}</div>
+          <div class="next">{next && <a href={pageHref(next)} data-next><small>Frame {next.frame}, page {next.index} →</small>{next.title}</a>}</div>
+        </nav>
+      </div>
+    </article>
+  </div>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Full-size album page" hidden>
+    <div class="bar">
+      <button type="button" data-toggle>Zoom</button>
+      <button type="button" data-close>Close ✕</button>
+    </div>
+    <div class="stage"><img alt={`Full-size album page: ${p.title}`} /></div>
+  </div>
+
+  <script>
+    const box = document.querySelector<HTMLElement>('.lightbox')!;
+    const stage = box.querySelector<HTMLElement>('.stage')!;
+    const big = box.querySelector<HTMLImageElement>('img')!;
+    const toggleBtn = box.querySelector<HTMLButtonElement>('[data-toggle]')!;
+    const opener = document.querySelector<HTMLButtonElement>('[data-zoom]')!;
+
+    const setZoom = (on: boolean, e?: MouseEvent) => {
+      const rect = big.getBoundingClientRect();
+      const fx = e ? (e.clientX - rect.left) / rect.width : 0.5;
+      const fy = e ? (e.clientY - rect.top) / rect.height : 0.3;
+      box.classList.toggle('zoomed', on);
+      toggleBtn.textContent = on ? 'Fit to screen' : 'Zoom';
+      if (on) {
+        stage.scrollLeft = big.naturalWidth * fx - stage.clientWidth / 2;
+        stage.scrollTop = big.naturalHeight * fy - stage.clientHeight / 2;
+      }
+    };
+    const open = () => {
+      if (!big.src) big.src = opener.dataset.zoom!;
+      box.hidden = false;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      toggleBtn.focus();
+    };
+    const close = () => {
+      box.classList.remove('open', 'zoomed');
+      box.hidden = true;
+      document.body.style.overflow = '';
+      toggleBtn.textContent = 'Zoom';
+      opener.focus();
+    };
+
+    opener.addEventListener('click', open);
+    box.querySelector('[data-close]')!.addEventListener('click', close);
+    toggleBtn.addEventListener('click', () => setZoom(!box.classList.contains('zoomed')));
+    big.addEventListener('click', (e) => setZoom(!box.classList.contains('zoomed'), e));
+    stage.addEventListener('click', (e) => { if (e.target === stage) close(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!box.hidden) {
+        if (e.key === 'Escape') close();
+        return;
+      }
+      if (e.target instanceof HTMLInputElement) return;
+      if (e.key === 'ArrowLeft') document.querySelector<HTMLAnchorElement>('[data-prev]')?.click();
+      if (e.key === 'ArrowRight') document.querySelector<HTMLAnchorElement>('[data-next]')?.click();
+    });
+  </script>
+</Base>

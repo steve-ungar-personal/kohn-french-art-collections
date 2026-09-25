@@ -1,0 +1,7 @@
+/frame */
+/overview.jpg
+/review/
+/.claude/
+node_modules
+dist
+.astro

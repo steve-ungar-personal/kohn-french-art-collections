@@ -141,3 +141,13 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Original full-resolution photos stay local (web renditions live in public/images)
+/frame */
+/overview.jpg
+.vercel
+.astro
+
+# Private family review notes (pricing) - never publish
+/review/
+/.claude/
