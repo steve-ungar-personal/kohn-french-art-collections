@@ -151,3 +151,5 @@ vite.config.ts.timestamp-*
 # Private family review notes (pricing) - never publish
 /review/
 /.claude/
+.vercel
+.env*
