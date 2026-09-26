@@ -34,7 +34,7 @@ export const exhibitRecord: ExhibitRecord[] = [
   { year: '1978', show: 'PRAGA 1978, Prague (international)', who: 'Janet', exhibit: 'Concentration camp mail', award: 'Silver-Bronze', source: APRL(71160, 'American Philatelist, Dec 1978, p.1187') },
   { year: '1981', show: 'WIPA 1981, Vienna (international)', who: 'Milton & Janet', exhibit: 'Concentration camp mail; “Man’s Inhumanity to Man”', award: 'Silver (Janet); Silver-Bronze (Milton)', source: APRL(64985, 'American Philatelist, Aug 1981, p.739') },
   { year: '1981', show: 'ROCPEX Taipei ’81 (international)', who: 'Milton & Janet', exhibit: '“French Art on Stamps”, and others', award: 'Bronze for French Art on Stamps; Milton served as a U.S. Commissioner', frenchArt: true, quote: 'Bronze, Milton M. Kohn, “French Art on Stamps”', source: APRL(62819, 'American Philatelist, Jan 1982, pp.21–22') },
-  { year: '1982', show: 'PHILEXFRANCE 82, Paris (international)', who: 'Milton', exhibit: 'Concentration camp mail; WWII overprints', award: 'Silver-Bronze; Bronze', source: APRL(63424, 'American Philatelist, Sept 1982, p.789') },
+  { year: '1982', show: 'PHILEXFRANCE 82, Paris (international)', who: 'Milton', exhibit: 'Concentration camp mail; WWII overprints', award: 'Silver-Bronze; Bronze', source: APRL(63425, 'American Philatelist, Sept 1982, p.790') },
   { year: '1984', show: 'POLPEX ’84, Chicago', who: 'Janet', exhibit: 'Concentration Camp Mail', award: 'Reserve Grand Award and Polonus Gold', source: APRL(254272, 'Polonus Bulletin, May–June 1984') },
 ];
 
