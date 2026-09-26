@@ -32,7 +32,7 @@ export const pages5to9: AlbumPage[] = [
     kinds: ['Deluxe proof'],
     summary: 'The deluxe proof of the La Tour stamp in the issued colours, with the printing works’ imprint and control marks.',
     contents: ['Deluxe proof card, with the stamp in its issued colours'],
-    research: ['The photograph of this page is slightly out of focus; the proof itself is in the album.'],
+    research: ['With the signed-proof and first day pages around it, this deluxe proof completes the proof sequence for the La Tour stamp.'],
     stamps: ['latour'],
     sources: [S.proofs],
   },
