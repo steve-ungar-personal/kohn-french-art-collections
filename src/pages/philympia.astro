@@ -1,67 +1,13 @@
 ---
-import Base from '../layouts/Base.astro';
-import { pages } from '../data/pages';
-import { philympiaList } from '../data/exhibitions';
-import { imageFor, pageHref } from '../lib/site';
-
-// First exhibit page (frames 1–9) showing a given stamp, preferring a kind.
-const linkFor = (id: string, prefer?: string) => {
-  const list = pages.filter((p) => p.frame <= 9 && p.stamps.includes(id));
-  const hit = (prefer && list.find((p) => p.kinds.includes(prefer as never))) || list[0];
-  return hit ? pageHref(hit) : undefined;
-};
-const sheets = [imageFor(11, 1), imageFor(11, 2)];
-const groups = [
-  ['Frame 1: stamps, first day covers and sketches', philympiaList.frame1, 'First day cover'],
-  ['Frame 2: signed proofs, errors and special cancels', philympiaList.frame2, 'Signed artist’s proof'],
-  ['Additional pages', philympiaList.frame3, 'Deluxe proof'],
-] as const;
+// Philympia now lives in a tab on the Exhibitions page; keep old links working.
 ---
-<Base title="Philympia 1970" description="Milton Kohn’s handwritten list of the Famous French Arts pages sent to Philympia, the 1970 international stamp exhibition in London." image={sheets[0].md} section="exhibitions">
-  <div class="wrap">
-    <nav class="crumbs"><a href="/">Home</a> / <a href="/exhibitions/">Exhibitions</a> / Philympia 1970</nav>
-    <header style="padding: 28px 0 24px; max-width: 800px;">
-      <p class="eyebrow">London, 18–26 September 1970</p>
-      <h1>Philympia 1970</h1>
-      <p class="lede">
-        Kept with the collection are two sheets in Milton Kohn’s hand headed
-        <em>“Famous French Arts sent to ‘Philympia’, the International Stamp Exhibition at Olympia, London, Eng.”</em>
-        They list the pages he shipped to London, frame by frame, with his valuation of each, and they are the earliest record of the
-        exhibit travelling abroad. Most of the pages on the list are still in this collection.
-      </p>
-      <p style="font-family:var(--sans);font-size:.92rem;color:var(--ink-soft)">
-        Philympia was the 1970 international stamp exhibition, held at Olympia in London under the patronage of the
-        Fédération Internationale de Philatélie, with about 3,600 exhibition frames of sixteen pages each, the same size as
-        Kohn’s frames.
-        (<a href="https://en.wikipedia.org/wiki/Philympia_1970">Wikipedia</a>;
-        <a href="https://www.postalmuseum.org/wp-content/uploads/2018/12/Stamp-History-1970-Philympia.pdf">The Postal Museum</a>)
-      </p>
-    </header>
-
-    <div class="split" style="align-items:start">
-      <div style="display:grid;gap:20px">
-        {sheets.map((img, i) => (
-          <a href={img.lg} class="mounted" style="display:block">
-            <img src={img.md} alt={`Milton Kohn’s handwritten Philympia list, sheet ${i + 1}`} width={img.width} height={img.height} loading={i ? 'lazy' : 'eager'} />
-          </a>
-        ))}
-      </div>
-      <div>
-        <h2 style="font-size:1.5rem">The list, linked to the collection</h2>
-        <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)">Each line opens the album page where that item appears today.</p>
-        {groups.map(([h, items, pref]) => (
-          <section class="record" style="padding:0">
-            <h3>{h}</h3>
-            <ol style="margin:0;padding:12px 16px 12px 36px;font-size:.95rem">
-              {items.map(([label, id]) => {
-                const href = linkFor(id, pref);
-                return <li>{href ? <a href={href}>{label}</a> : label}</li>;
-              })}
-            </ol>
-          </section>
-        ))}
-        <p style="margin-top:24px"><a class="btn ghost" href="/exhibitions/">All exhibitions and awards →</a></p>
-      </div>
-    </div>
-  </div>
-</Base>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Philympia 1970 · Famous French Arts</title>
+    <meta http-equiv="refresh" content="0; url=/exhibitions/#philympia" />
+    <link rel="canonical" href="/exhibitions/#philympia" />
+  </head>
+  <body><a href="/exhibitions/#philympia">Philympia 1970</a></body>
+</html>

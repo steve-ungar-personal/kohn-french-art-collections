@@ -1,83 +1,166 @@
 ---
 import Base from '../layouts/Base.astro';
-import { exhibitRecord } from '../data/exhibitions';
-import { imageFor } from '../lib/site';
+import { pages } from '../data/pages';
+import { exhibitRecord, philympiaList } from '../data/exhibitions';
+import { imageFor, pageHref } from '../lib/site';
 
 const frenchArt = exhibitRecord.filter((r) => r.frenchArt);
-const sheet = imageFor(11, 1);
 const th = 'padding:8px;border-bottom:1px solid var(--rule)';
+const short = (l: string) => l.replace('APRL digital library — ', '');
+
+// First exhibit page (frames 1–9) showing a given stamp, preferring a kind.
+const linkFor = (id: string, prefer?: string) => {
+  const list = pages.filter((p) => p.frame <= 9 && p.stamps.includes(id));
+  const hit = (prefer && list.find((p) => p.kinds.includes(prefer as never))) || list[0];
+  return hit ? pageHref(hit) : undefined;
+};
+const sheets = [imageFor(11, 1), imageFor(11, 2)];
+const groups = [
+  ['Frame 1: stamps, first day covers and sketches', philympiaList.frame1, 'First day cover'],
+  ['Frame 2: signed proofs, errors and special cancels', philympiaList.frame2, 'Signed artist’s proof'],
+  ['Additional pages', philympiaList.frame3, 'Deluxe proof'],
+] as const;
 ---
-<Base title="Exhibitions and awards" description="The documented exhibition record of Milton and Janet Kohn, 1967–1984, including the awards won by the Famous French Arts exhibit." section="exhibitions">
+<Base title="Exhibitions and awards" description="The documented exhibition record of Milton and Janet Kohn, 1967–1984, and Milton Kohn’s list of the Famous French Arts pages sent to Philympia 1970 in London." section="exhibitions">
   <div class="wrap">
-    <header style="padding: 48px 0 24px; max-width: 800px;">
+    <header style="padding: 48px 0 20px; max-width: 800px;">
       <p class="eyebrow">The exhibits on the road</p>
-      <h1>Exhibitions and awards, 1967–1984</h1>
+      <h1>Exhibitions and awards</h1>
       <p class="lede">
-        <em>Famous French Arts</em> was shown and judged from 1967, two years after Milton Kohn took up stamps, until the early
-        1980s. It won a gold medal in 1967, the Milwaukee Philatelic Society President’s Award in 1975, a silver in 1976 and an
-        international bronze in Taipei in 1981. In 1970 it went to London for Philympia.
+        <em>Famous French Arts</em> was shown and judged from 1967, two years after Milton Kohn took up stamps, into the early
+        1980s, and in 1970 it went to London for Philympia. Janet Kohn won best in show twice in 1978.
       </p>
     </header>
 
-    <a href="/philympia/" class="frame-card" style="display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;padding:14px;margin-bottom:40px;max-width:820px">
-      <img src={sheet.thumb} alt="" width="120" height="156" style="width:120px;height:156px;object-fit:cover;object-position:top" />
-      <div>
-        <span class="num">1970 · London</span>
-        <h3 style="margin:4px 0 6px">Philympia: Kohn’s own list of what he sent</h3>
-        <p>Two handwritten sheets list the pages shipped to the international exhibition at Olympia, each linked to where it is in the collection today. →</p>
-      </div>
-    </a>
-
-    <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);max-width:800px">
-      Sources are the stamp press of the time (<em>The American Philatelist</em>, the <em>Polonus Bulletin</em> and the
-      <em>Wisconsin Federation of Stamp Clubs Bulletin</em>), read in the American Philatelic Research Library’s digital archive.
-      Each source link opens the printed page. Rows marked ★ are the French art exhibit shown on this site; the others are the
-      Kohns’ postal-history exhibits of concentration-camp mail.
-    </p>
-    <div style="overflow-x:auto;margin-top:16px">
-      <table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:820px">
-        <thead>
-          <tr style="text-align:left;font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)">
-            <th style={th}>Year</th><th style={th}>Exhibition</th><th style={th}>Exhibitor</th><th style={th}>Exhibit</th><th style={th}>Award</th><th style={th}>Source (printed page)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {exhibitRecord.map((r) => (
-            <tr style={r.frenchArt ? 'background:#f6ecee' : ''}>
-              <td style={`${th};white-space:nowrap`}>{r.frenchArt ? '★ ' : ''}{r.year}</td>
-              <td style={th}>{r.show}</td>
-              <td style={th}>{r.who}</td>
-              <td style={th}>{r.exhibit}</td>
-              <td style={th}>{r.award}</td>
-              <td style={`${th};font-family:var(--sans);font-size:.8rem`}><a href={r.source.url} rel="noopener">{r.source.label.replace('APRL digital library — ', '')}</a></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div class="tabs" role="tablist" aria-label="Exhibitions">
+      <button role="tab" id="tab-awards" aria-controls="awards" aria-selected="true">Awards, 1967–1984</button>
+      <button role="tab" id="tab-philympia" aria-controls="philympia" aria-selected="false" tabindex="-1">Philympia 1970</button>
     </div>
 
-    <section>
-      <div class="split">
+    <section id="awards" class="tabpanel" role="tabpanel" aria-labelledby="tab-awards">
+      <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);max-width:800px">
+        Sources are the stamp press of the time, mainly <em>The American Philatelist</em>, the <em>Polonus Bulletin</em> and the
+        <em>Wisconsin Federation of Stamp Clubs Bulletin</em>. Each source link opens the printed page or index entry. Rows marked ★ are
+        the French art exhibit shown on this site. The others are the Kohns’ postal-history exhibits of concentration-camp mail.
+      </p>
+      <div style="overflow-x:auto;margin-top:16px">
+        <table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:820px">
+          <thead>
+            <tr style="text-align:left;font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)">
+              <th style={th}>Year</th><th style={th}>Exhibition</th><th style={th}>Exhibitor</th><th style={th}>Exhibit</th><th style={th}>Award</th><th style={th}>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {exhibitRecord.map((r) => (
+              <tr style={r.frenchArt ? 'background:#f6ecee' : ''}>
+                <td style={`${th};white-space:nowrap`}>{r.frenchArt ? '★ ' : ''}{r.year}</td>
+                <td style={th}>{r.show}</td>
+                <td style={th}>{r.who}</td>
+                <td style={th}>{r.exhibit}</td>
+                <td style={th}>{r.award}</td>
+                <td style={`${th};font-family:var(--sans);font-size:.8rem`}>
+                  {r.source.url === '/philympia/'
+                    ? <a href="#philympia" data-tab-link="philympia">{r.source.label}</a>
+                    : <a href={r.source.url} rel="noopener">{short(r.source.label)}</a>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="split" style="margin-top:40px">
         <blockquote class="hand" style="margin:0">
           {frenchArt.filter((r) => r.quote).map((r) => (
-            <p>“{r.quote}.” <a href={r.source.url} style="font-family:var(--sans);font-size:.75rem">{r.source.label.replace('APRL digital library — ', '')}</a></p>
+            <p>“{r.quote}.” <a href={r.source.url} style="font-family:var(--sans);font-size:.75rem">{short(r.source.label)}</a></p>
           ))}
           <cite>The French art exhibit in the stamp press</cite>
         </blockquote>
         <div class="prose">
-          <h2 style="font-size:1.5rem">Janet Kohn’s best in show</h2>
+          <h2 style="font-size:1.5rem">Janet Kohn: two best-in-show awards in 1978</h2>
           <p>
-            Janet Kohn exhibited in her own right. In November 1978 she won the Grand Award, best in show, at SUPEX ’78, the show
-            of the Suburban Collectors Club of Chicago at Brookfield, Illinois, for “Concentration Camp Censor Markings”
+            Janet Kohn exhibited in her own right. In November 1978 she won the Grand Award, best in show, at SUPEX ’78, the show of
+            the Suburban Collectors Club of Chicago at Brookfield, Illinois, for “Concentration Camp Censor Markings”
             (<a href="https://digital.stamplibrary.org/ContentDmAdmin/ImageProxy.ashx?col=3&ptr=68959&sz=full">American Philatelist, Jan. 1979, p. 57</a>).
-            She won medals at international exhibitions in Amsterdam, Prague, Vienna and Taipei.
+            The following month the <em>Wisconsin Federation of Stamp Clubs Bulletin</em> led its Winter 1978 issue with
+            “Best in show to Janet Kohn”, indexed under the University of Wisconsin–Milwaukee Philatelic Society, whose show was held in Milwaukee in December 1978
+            (<a href="https://www.wfscstamps.org/ATFP/Bulletin%20subject%20index.pdf">WFSC Bulletin subject index</a>).
           </p>
           <p>
-            At ROCPEX Taipei ’81, where “French Art on Stamps” won a bronze, Milton was one of the U.S. commissioners. The signed
-            dinner card in the <a href="/frames/9/15/">miscellany</a> dates from that trip.
+            She also won medals at international exhibitions in Amsterdam, Prague, Vienna and Taipei. At ROCPEX Taipei ’81, where
+            “French Art on Stamps” won a bronze, Milton was one of the U.S. commissioners; the signed dinner card in the
+            <a href="/frames/9/15/">miscellany</a> dates from that trip.
           </p>
         </div>
       </div>
     </section>
+
+    <section id="philympia" class="tabpanel" role="tabpanel" aria-labelledby="tab-philympia">
+      <div style="max-width:800px">
+        <p class="eyebrow">London, 18–26 September 1970</p>
+        <p>
+          Kept with the collection are two sheets in Milton Kohn’s hand headed
+          <em>“Famous French Arts sent to ‘Philympia’, the International Stamp Exhibition at Olympia, London, Eng.”</em>
+          They list the pages he shipped to London, frame by frame, with his valuation of each, and are the earliest record of the
+          exhibit travelling abroad. Most of the pages on the list are still in this collection.
+        </p>
+        <p style="font-family:var(--sans);font-size:.92rem;color:var(--ink-soft)">
+          Philympia was the 1970 international stamp exhibition, held at Olympia in London under the patronage of the Fédération
+          Internationale de Philatélie, with about 3,600 exhibition frames of sixteen pages each, the same size as Kohn’s frames
+          (<a href="https://en.wikipedia.org/wiki/Philympia_1970">Wikipedia</a>;
+          <a href="https://www.postalmuseum.org/wp-content/uploads/2018/12/Stamp-History-1970-Philympia.pdf">The Postal Museum</a>).
+        </p>
+      </div>
+      <div class="split" style="align-items:start;margin-top:24px">
+        <div style="display:grid;gap:20px">
+          {sheets.map((img, i) => (
+            <a href={img.lg} class="mounted" style="display:block">
+              <img src={img.md} alt={`Milton Kohn’s handwritten Philympia list, sheet ${i + 1}`} width={img.width} height={img.height} loading="lazy" />
+            </a>
+          ))}
+        </div>
+        <div>
+          <h2 style="font-size:1.5rem">The list, linked to the collection</h2>
+          <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)">Each line opens the album page where that item appears today.</p>
+          {groups.map(([h, items, pref]) => (
+            <section class="record" style="padding:0">
+              <h3>{h}</h3>
+              <ol style="margin:0;padding:12px 16px 12px 36px;font-size:.95rem">
+                {items.map(([label, id]) => {
+                  const href = linkFor(id, pref);
+                  return <li>{href ? <a href={href}>{label}</a> : label}</li>;
+                })}
+              </ol>
+            </section>
+          ))}
+        </div>
+      </div>
+    </section>
   </div>
+
+  <script>
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const show = (id: string, focus = false) => {
+      tabs.forEach((t) => {
+        const on = t.getAttribute('aria-controls') === id;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !on;
+        if (on && focus) t.focus();
+      });
+      history.replaceState(null, '', id === 'awards' ? location.pathname : `#${id}`);
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => show(t.getAttribute('aria-controls')!));
+      t.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        show(next.getAttribute('aria-controls')!, true);
+      });
+    });
+    document.querySelectorAll<HTMLAnchorElement>('[data-tab-link]').forEach((a) =>
+      a.addEventListener('click', (e) => { e.preventDefault(); show(a.dataset.tabLink!); window.scrollTo({ top: 0 }); })
+    );
+    show(location.hash === '#philympia' ? 'philympia' : 'awards');
+  </script>
 </Base>

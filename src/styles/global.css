@@ -186,6 +186,17 @@ section { padding: 56px 0; }
 .pager small { display: block; color: var(--ink-soft); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .pager .next { text-align: right; }
 
+/* ── Tabs ───────────────────────────────────────────── */
+.tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--carmine); margin: 8px 0 28px; }
+.tabs button {
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; padding: 12px 20px; cursor: pointer;
+  background: var(--paper-2); color: var(--ink-soft); border: 1px solid var(--rule); border-bottom: none; border-radius: 4px 4px 0 0;
+}
+.tabs button[aria-selected='true'] { background: var(--carmine); color: #fff; border-color: var(--carmine); }
+.tabs button:focus-visible { outline: 3px solid var(--rose); outline-offset: 2px; }
+@media (max-width: 480px) { .tabs button { flex: 1; padding: 10px 8px; font-size: 0.85rem; } }
+.tabpanel { padding: 0 0 56px; }
+
 /* ── Glossary ───────────────────────────────────────── */
 .gloss { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 .gloss article { background: var(--card); padding: 20px 22px; box-shadow: var(--shadow); border-top: 3px solid var(--carmine); }
