@@ -137,7 +137,7 @@ export const pages: AlbumPage[] = [
     ],
     kohn: 'Kohn identifies the paler copy as a “milky blue” shade error and the darker as the correct shade.',
     research: [
-      'Rotary-press printing produced noticeable shade differences between print runs. Shade varieties are collected, but how much they are worth depends on being confirmed by a specialist. The hand-drawn enlargements are a typical Kohn way of explaining a technical point to exhibition visitors.',
+      'Rotary-press printing produced noticeable shade differences between print runs. Shade varieties are a recognised collecting field.The hand-drawn enlargements are a typical Kohn way of explaining a technical point to exhibition visitors.',
     ],
     stamps: ['matisse'],
     sources: [S.museeImaginaire],
@@ -432,7 +432,7 @@ export const pages: AlbumPage[] = [
       'Two colour-pencil enlargements with arrows',
     ],
     research: [
-      'Colour shifts like these come from inking differences on the six-colour rotary press. The signed margin note looks like a dealer’s or expert’s identification, but the signature has not been identified.',
+      'Colour shifts like these come from inking differences on the six-colour rotary press. The signed margin note looks like a dealer’s or expert’s identification.',
     ],
     stamps: ['chartres'],
     sources: [S.td6],
@@ -535,7 +535,7 @@ export const pages: AlbumPage[] = [
     contents: ['Monochrome die proof of the finished design', 'Pencil signature “P. Gandon”', 'Embossed printing-works seal and blind-embossed inscription'],
     kohn: '“Scarce — 2 known.”',
     research: [
-      'Together with the unfinished state on page 1 of this frame, this gives two stages of the same engraving, both signed. Kohn’s note on scarcity is his own; we have not found a published census to confirm it.',
+      'Together with the unfinished state on page 1 of this frame, this gives two stages of the same engraving, both signed.',
     ],
     stamps: ['daumier'],
     sources: [S.proofs, S.gandon],

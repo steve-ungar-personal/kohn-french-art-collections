@@ -5,7 +5,7 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
-  section?: 'home' | 'frames' | 'guide';
+  section?: 'home' | 'frames' | 'guide' | 'collectors' | 'exhibitions';
 }
 
 const {
@@ -45,8 +45,8 @@ const fullTitle = title ? `${title} · Famous French Arts` : 'Famous French Arts
         </a>
         <nav class="nav" aria-label="Main">
           <a href="/#frames" aria-current={section === 'frames' ? 'page' : undefined}>Frames</a>
-          <a class="opt" href="/#collectors">Collectors</a>
-          <a href="/philympia/">Exhibitions</a>
+          <a href="/collectors/" aria-current={section === 'collectors' ? 'page' : undefined}>Collectors</a>
+          <a href="/exhibitions/" aria-current={section === 'exhibitions' ? 'page' : undefined}>Exhibitions</a>
           <a href="/guide/" aria-current={section === 'guide' ? 'page' : undefined}>Guide</a>
         </nav>
       </div>

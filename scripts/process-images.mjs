@@ -13,7 +13,6 @@ const outRoot = path.join(root, 'public', 'images');
 const manifestPath = path.join(root, 'src', 'data', 'images.json');
 const overrides = JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'image-overrides.json'), 'utf8').replace(/^﻿/, ''));
 const only = process.argv.slice(2).map(Number);
-const binderBlur = JSON.parse(fs.readFileSync(path.join(root, 'scripts', 'binder-blur.json'), 'utf8'));
 
 const pad2 = (n) => String(n).padStart(2, '0');
 const slugOf = (s) => (s.frame === 0 ? 'overview' : `frame-${s.frame}/${pad2(s.index)}`);
@@ -26,9 +25,7 @@ for (const s of listSources()) {
   const slug = slugOf(s);
   current.add(slug);
   if (only.length && !only.includes(s.frame)) continue;
-  const o = { ...(overrides[slug] ?? {}) };
-  if (s.frame === 10 && binderBlur[pad2(s.index)]) o.blurMd = binderBlur[pad2(s.index)];
-  const meta = await sharp(s.file).metadata();
+  const o = { ...(overrides[slug] ?? {}) };  const meta = await sharp(s.file).metadata();
 
   let region;
   if (Array.isArray(o.crop)) {
@@ -70,10 +67,7 @@ for (const s of listSources()) {
   }
 
   fs.mkdirSync(path.dirname(path.join(outRoot, slug)), { recursive: true });
-  // Binder pages carry pencilled catalogue-price tags, so they are published
-  // only at a size where the tags are not legible (no full-size zoom).
-  const sizes = s.frame === 10 ? { thumb: 640, md: 1000, lg: 1000 } : SIZES;
-  for (const [name, w] of Object.entries(sizes)) {
+  for (const [name, w] of Object.entries(SIZES)) {
     await sharp(base)
       .resize({ width: Math.min(w, width) })
       .webp({ quality: name === 'thumb' ? 72 : 80 })
