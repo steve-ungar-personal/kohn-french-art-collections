@@ -1002,5 +1002,446 @@
     "width": 1682,
     "height": 2407,
     "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 1,
+    "slug": "frame-10/01",
+    "source": "misc stamps\\PXL_20260925_205258677.MP.jpg",
+    "width": 2548,
+    "height": 2065,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 2,
+    "slug": "frame-10/02",
+    "source": "misc stamps\\PXL_20260925_205305229.jpg",
+    "width": 2790,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 3,
+    "slug": "frame-10/03",
+    "source": "misc stamps\\PXL_20260925_205312220.jpg",
+    "width": 2800,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 4,
+    "slug": "frame-10/04",
+    "source": "misc stamps\\PXL_20260925_205319267.jpg",
+    "width": 2710,
+    "height": 2125,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 5,
+    "slug": "frame-10/05",
+    "source": "misc stamps\\PXL_20260925_205326328.jpg",
+    "width": 2680,
+    "height": 2135,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 6,
+    "slug": "frame-10/06",
+    "source": "misc stamps\\PXL_20260925_205333540.jpg",
+    "width": 2730,
+    "height": 2044,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 7,
+    "slug": "frame-10/07",
+    "source": "misc stamps\\PXL_20260925_205353592.jpg",
+    "width": 2659,
+    "height": 1994,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 8,
+    "slug": "frame-10/08",
+    "source": "misc stamps\\PXL_20260925_205411739.jpg",
+    "width": 2740,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 9,
+    "slug": "frame-10/09",
+    "source": "misc stamps\\PXL_20260925_205425947.MP.jpg",
+    "width": 2548,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 10,
+    "slug": "frame-10/10",
+    "source": "misc stamps\\PXL_20260925_205443521.jpg",
+    "width": 2649,
+    "height": 1994,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 11,
+    "slug": "frame-10/11",
+    "source": "misc stamps\\PXL_20260925_205450549.jpg",
+    "width": 2690,
+    "height": 2034,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 12,
+    "slug": "frame-10/12",
+    "source": "misc stamps\\PXL_20260925_205456170.jpg",
+    "width": 2649,
+    "height": 1964,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 13,
+    "slug": "frame-10/13",
+    "source": "misc stamps\\PXL_20260925_205502157.jpg",
+    "width": 2599,
+    "height": 1994,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 14,
+    "slug": "frame-10/14",
+    "source": "misc stamps\\PXL_20260925_205507207.jpg",
+    "width": 2649,
+    "height": 2034,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 15,
+    "slug": "frame-10/15",
+    "source": "misc stamps\\PXL_20260925_205511369.jpg",
+    "width": 2780,
+    "height": 2034,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 16,
+    "slug": "frame-10/16",
+    "source": "misc stamps\\PXL_20260925_205521521.jpg",
+    "width": 2589,
+    "height": 2004,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 17,
+    "slug": "frame-10/17",
+    "source": "misc stamps\\PXL_20260925_205535632.jpg",
+    "width": 2770,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 18,
+    "slug": "frame-10/18",
+    "source": "misc stamps\\PXL_20260925_205543705.jpg",
+    "width": 2609,
+    "height": 1994,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 19,
+    "slug": "frame-10/19",
+    "source": "misc stamps\\PXL_20260925_205549336.jpg",
+    "width": 2911,
+    "height": 2145,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 20,
+    "slug": "frame-10/20",
+    "source": "misc stamps\\PXL_20260925_205558889.jpg",
+    "width": 2780,
+    "height": 2145,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 21,
+    "slug": "frame-10/21",
+    "source": "misc stamps\\PXL_20260925_205614011.jpg",
+    "width": 2690,
+    "height": 2055,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 22,
+    "slug": "frame-10/22",
+    "source": "misc stamps\\PXL_20260925_205642356.jpg",
+    "width": 2821,
+    "height": 2095,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 23,
+    "slug": "frame-10/23",
+    "source": "misc stamps\\PXL_20260925_205649360.jpg",
+    "width": 2871,
+    "height": 2085,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 24,
+    "slug": "frame-10/24",
+    "source": "misc stamps\\PXL_20260925_205657249.jpg",
+    "width": 2710,
+    "height": 2024,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 25,
+    "slug": "frame-10/25",
+    "source": "misc stamps\\PXL_20260925_205751291.jpg",
+    "width": 2428,
+    "height": 2004,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 26,
+    "slug": "frame-10/26",
+    "source": "misc stamps\\PXL_20260925_205801079.jpg",
+    "width": 2548,
+    "height": 2135,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 27,
+    "slug": "frame-10/27",
+    "source": "misc stamps\\PXL_20260925_205807707.jpg",
+    "width": 2659,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 28,
+    "slug": "frame-10/28",
+    "source": "misc stamps\\PXL_20260925_205814456.jpg",
+    "width": 2669,
+    "height": 2075,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 29,
+    "slug": "frame-10/29",
+    "source": "misc stamps\\PXL_20260925_205820800.jpg",
+    "width": 2609,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 30,
+    "slug": "frame-10/30",
+    "source": "misc stamps\\PXL_20260925_205826239.jpg",
+    "width": 2821,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 31,
+    "slug": "frame-10/31",
+    "source": "misc stamps\\PXL_20260925_205832786.jpg",
+    "width": 2619,
+    "height": 2125,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 32,
+    "slug": "frame-10/32",
+    "source": "misc stamps\\PXL_20260925_205840517.jpg",
+    "width": 2357,
+    "height": 2065,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 33,
+    "slug": "frame-10/33",
+    "source": "misc stamps\\PXL_20260925_205847679.jpg",
+    "width": 2377,
+    "height": 2044,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 34,
+    "slug": "frame-10/34",
+    "source": "misc stamps\\PXL_20260925_205855978.jpg",
+    "width": 2387,
+    "height": 2065,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 35,
+    "slug": "frame-10/35",
+    "source": "misc stamps\\PXL_20260925_205905854.jpg",
+    "width": 2428,
+    "height": 2004,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 36,
+    "slug": "frame-10/36",
+    "source": "misc stamps\\PXL_20260925_205912574.jpg",
+    "width": 2508,
+    "height": 2034,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 37,
+    "slug": "frame-10/37",
+    "source": "misc stamps\\PXL_20260925_205942094.jpg",
+    "width": 2276,
+    "height": 1621,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 38,
+    "slug": "frame-10/38",
+    "source": "misc stamps\\PXL_20260925_205956009.jpg",
+    "width": 2952,
+    "height": 2014,
+    "blurred": false
+  },
+  {
+    "frame": 10,
+    "index": 39,
+    "slug": "frame-10/39",
+    "source": "misc stamps\\PXL_20260925_210026357.jpg",
+    "width": 2548,
+    "height": 2125,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 40,
+    "slug": "frame-10/40",
+    "source": "misc stamps\\PXL_20260925_210053170.jpg",
+    "width": 2458,
+    "height": 1944,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 41,
+    "slug": "frame-10/41",
+    "source": "misc stamps\\PXL_20260925_210101436.jpg",
+    "width": 3173,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 42,
+    "slug": "frame-10/42",
+    "source": "misc stamps\\PXL_20260925_210132913.jpg",
+    "width": 3325,
+    "height": 2145,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 43,
+    "slug": "frame-10/43",
+    "source": "misc stamps\\PXL_20260925_210146592.jpg",
+    "width": 2518,
+    "height": 1994,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 44,
+    "slug": "frame-10/44",
+    "source": "misc stamps\\PXL_20260925_210154717.jpg",
+    "width": 2619,
+    "height": 2024,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 45,
+    "slug": "frame-10/45",
+    "source": "misc stamps\\PXL_20260925_210205969.jpg",
+    "width": 2730,
+    "height": 2055,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 46,
+    "slug": "frame-10/46",
+    "source": "misc stamps\\PXL_20260925_210213979.jpg",
+    "width": 2468,
+    "height": 1944,
+    "blurred": true
+  },
+  {
+    "frame": 10,
+    "index": 47,
+    "slug": "frame-10/47",
+    "source": "misc stamps\\PXL_20260925_213022494.jpg",
+    "width": 1742,
+    "height": 1964,
+    "blurred": false
+  },
+  {
+    "frame": 11,
+    "index": 1,
+    "slug": "frame-11/01",
+    "source": "philympia\\PXL_20260925_213058275.jpg",
+    "width": 2268,
+    "height": 2943,
+    "blurred": true
+  },
+  {
+    "frame": 11,
+    "index": 2,
+    "slug": "frame-11/02",
+    "source": "philympia\\PXL_20260925_213104052.jpg",
+    "width": 2268,
+    "height": 2943,
+    "blurred": true
   }
 ]

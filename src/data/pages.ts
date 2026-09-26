@@ -5,6 +5,7 @@
 
 import { S, type Source } from './sources';
 import { pages5to9, frameThemes5to9 } from './pages-5-9';
+import { binderPages } from './pages-binder';
 
 export type Kind =
   | 'Introduction'
@@ -848,6 +849,7 @@ export const pages: AlbumPage[] = [
     sources: [S.proofs, S.stampproofs],
   },
   ...pages5to9,
+  ...binderPages,
 ];
 
 // Frames 1–8 are the exhibition frames, 9 is a miscellany, and 10 holds the

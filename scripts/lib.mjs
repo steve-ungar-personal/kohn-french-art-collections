@@ -10,6 +10,8 @@ export const root = process.cwd();
 export const FOLDERS = [
   ...[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => ({ frame: n, dir: `frame ${n}`, card: true })),
   { frame: 10, dir: 'misc stamps', card: false },
+  // Milton Kohn's handwritten Philympia 1970 lists.
+  { frame: 11, dir: 'philympia', card: false },
 ];
 
 // Source photos in display order. A photo whose file name already appeared in

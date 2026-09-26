@@ -30,7 +30,11 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
         </button>
         <p class="hint">Click the page to view full size and zoom in.</p>
         {img.blurred && (
-          <p class="privacy-note">Addressee names and addresses are blurred in this online image for privacy. They are not blurred on the actual album page.</p>
+          <p class="privacy-note">{p.frame === 10
+            ? 'Pencilled catalogue tags are blurred in this online image. They are not blurred on the actual binder page.'
+            : p.frame === 11
+              ? 'Kohn’s pencilled valuations are blurred in this online image. They are not blurred on the actual sheet.'
+              : 'Addressee names and addresses are blurred in this online image for privacy. They are not blurred on the actual album page.'}</p>
         )}
       </div>
 
@@ -42,10 +46,14 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
         </ul>
         <p class="summary" set:html={p.summary} />
 
-        <h2>On this page</h2>
-        <ul class="contents">
-          {p.contents.map((c) => <li set:html={c} />)}
-        </ul>
+        {p.contents.length > 0 && (
+          <>
+            <h2>On this page</h2>
+            <ul class="contents">
+              {p.contents.map((c) => <li set:html={c} />)}
+            </ul>
+          </>
+        )}
 
         {p.kohn && (
           <>
