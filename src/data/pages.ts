@@ -6,6 +6,7 @@
 import { S, type Source } from './sources';
 import { pages5to9, frameThemes5to9 } from './pages-5-9';
 import { binderPages } from './pages-binder';
+import { sheetPages } from './pages-sheets';
 
 export type Kind =
   | 'Introduction'
@@ -19,6 +20,7 @@ export type Kind =
   | 'Varieties'
   | 'Hand-drawn cancel'
   | 'Original sketch'
+  | 'Full sheet'
   | 'Mint stamps';
 
 export interface AlbumPage {
@@ -850,11 +852,13 @@ export const pages: AlbumPage[] = [
   },
   ...pages5to9,
   ...binderPages,
+  ...sheetPages,
 ];
 
 // Frames 1–8 are the exhibition frames, 9 is a miscellany, and 10 holds the
-// binder pages from the "misc stamps" folder once they are photographed.
-export const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
+// binder pages from the "misc stamps" folder. 11 is Philympia (its own page)
+// and 12 the full sheets and boxed first day covers.
+export const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12].map((n) => ({
   number: n,
   pages: pages.filter((p) => p.frame === n),
 }));
@@ -862,6 +866,7 @@ export const frames = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => ({
 export const frameThemes: Record<number, { title: string; detail: string }> = {
   ...frameThemes5to9,
   10: { title: 'Binder pages', detail: 'Additional stamps from the Kohns’ stock binder' },
+  12: { title: 'Full sheets & first day covers', detail: 'Complete mint sheets of 25 and the Kohns’ boxed first day covers' },
   1: { title: 'Matisse & Braque', detail: 'The first “Musée Imaginaire” stamps of 1961' },
   2: { title: 'Cathedrals, glass & fresco', detail: 'Saint-Savin, Sens, Chartres and Notre-Dame, with Daumier to close' },
   3: { title: 'Masters old & new', detail: 'Daumier, the Apocalypse Tapestry, Conches, Clouet, Rousseau and La Fresnaye' },

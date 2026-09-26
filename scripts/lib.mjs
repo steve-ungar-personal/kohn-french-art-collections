@@ -12,6 +12,8 @@ export const FOLDERS = [
   { frame: 10, dir: 'misc stamps', card: false },
   // Milton Kohn's handwritten Philympia 1970 lists.
   { frame: 11, dir: 'philympia', card: false },
+  // Full mint sheets and the boxed first day covers ("stamps sheets.zip").
+  { frame: 12, dir: 'stamp sheets', card: false },
 ];
 
 // Source photos in display order. A photo whose file name already appeared in

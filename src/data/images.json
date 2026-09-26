@@ -1443,5 +1443,122 @@
     "width": 2268,
     "height": 2943,
     "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 1,
+    "slug": "frame-12/01",
+    "source": "stamp sheets\\PXL_20260926_191433465.jpg",
+    "width": 1934,
+    "height": 2639,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 2,
+    "slug": "frame-12/02",
+    "source": "stamp sheets\\PXL_20260926_191439187.jpg",
+    "width": 2034,
+    "height": 2740,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 3,
+    "slug": "frame-12/03",
+    "source": "stamp sheets\\PXL_20260926_191515377.jpg",
+    "width": 2135,
+    "height": 2176,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 4,
+    "slug": "frame-12/04",
+    "source": "stamp sheets\\PXL_20260926_191547934.jpg",
+    "width": 2105,
+    "height": 2145,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 5,
+    "slug": "frame-12/05",
+    "source": "stamp sheets\\PXL_20260926_191615785.jpg",
+    "width": 2135,
+    "height": 2196,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 6,
+    "slug": "frame-12/06",
+    "source": "stamp sheets\\PXL_20260926_191643198.MP.jpg",
+    "width": 2085,
+    "height": 2085,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 7,
+    "slug": "frame-12/07",
+    "source": "stamp sheets\\PXL_20260926_191710930.jpg",
+    "width": 2075,
+    "height": 2165,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 8,
+    "slug": "frame-12/08",
+    "source": "stamp sheets\\PXL_20260926_191749937.jpg",
+    "width": 2135,
+    "height": 1954,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 9,
+    "slug": "frame-12/09",
+    "source": "stamp sheets\\PXL_20260926_191823173.jpg",
+    "width": 2105,
+    "height": 2095,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 10,
+    "slug": "frame-12/10",
+    "source": "stamp sheets\\PXL_20260926_191901246.jpg",
+    "width": 2115,
+    "height": 2216,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 11,
+    "slug": "frame-12/11",
+    "source": "stamp sheets\\PXL_20260926_191935962.jpg",
+    "width": 2145,
+    "height": 2206,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 12,
+    "slug": "frame-12/12",
+    "source": "stamp sheets\\PXL_20260926_192004437.jpg",
+    "width": 2115,
+    "height": 2115,
+    "blurred": false
+  },
+  {
+    "frame": 12,
+    "index": 13,
+    "slug": "frame-12/13",
+    "source": "stamp sheets\\PXL_20260926_192042477.MP.jpg",
+    "width": 2125,
+    "height": 2206,
+    "blurred": false
   }
 ]

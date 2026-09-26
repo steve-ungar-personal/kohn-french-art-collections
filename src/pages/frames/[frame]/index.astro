@@ -19,7 +19,7 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
   <div class="wrap">
     <nav class="crumbs"><a href="/">Home</a> / <a href="/#frames">Frames</a> / {n <= 8 ? `Frame ${n}` : heading}</nav>
     <header style="padding: 28px 0 36px; max-width: 760px;">
-      <p class="eyebrow">{n <= 8 ? `Exhibition frame ${n} of 8` : n === 9 ? 'Miscellany' : 'Binder pages'}</p>
+      <p class="eyebrow">{n <= 8 ? `Exhibition frame ${n} of 8` : n === 9 ? 'Miscellany' : n === 10 ? 'Binder pages' : 'Sheets & covers'}</p>
       <h1>{heading}</h1>
       <p class="lede">{detail}. {frame.pages.length} pages{n <= 8 ? ', shown in the order they were hung' : ''}.</p>
     </header>
