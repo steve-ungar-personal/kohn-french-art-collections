@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { pages } from '../data/pages';
-import { exhibitRecord, philympiaList } from '../data/exhibitions';
+import { exhibitRecord, philympiaList, displays } from '../data/exhibitions';
 import { imageFor, pageHref } from '../lib/site';
 
 const frenchArt = exhibitRecord.filter((r) => r.frenchArt);
@@ -34,6 +34,7 @@ const groups = [
 
     <div class="tabs" role="tablist" aria-label="Exhibitions">
       <button role="tab" id="tab-awards" aria-controls="awards" aria-selected="true">Awards, 1966–1984</button>
+      <button role="tab" id="tab-showings" aria-controls="showings" aria-selected="false" tabindex="-1">Other showings</button>
       <button role="tab" id="tab-philympia" aria-controls="philympia" aria-selected="false" tabindex="-1">Philympia 1970</button>
     </div>
 
@@ -92,6 +93,38 @@ const groups = [
             <a href="/frames/9/15/">miscellany</a> dates from that trip.
           </p>
         </div>
+      </div>
+    </section>
+
+
+    <section id="showings" class="tabpanel" role="tabpanel" aria-labelledby="tab-showings">
+      <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);max-width:800px">
+        Not every showing was a competition. Milton Kohn also displayed the collections at talks, museums, colleges and
+        synagogues. From the 1980s he mostly showed the Holocaust collection that grew out of the Kohns’ concentration-camp mail,
+        “Man’s Inhumanity to Man”, which Janet had encouraged him to build. Each entry quotes its source. Newspaper headlines
+        whose full text could not be read are marked as headlines.
+      </p>
+      <div style="overflow-x:auto;margin-top:16px">
+        <table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:820px">
+          <thead>
+            <tr style="text-align:left;font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)">
+              <th style={th}>Date</th><th style={th}>Where</th><th style={th}>Who</th><th style={th}>What was shown</th><th style={th}>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {displays.map((d) => (
+              <tr style={d.what.includes('French') ? 'background:#f6ecee' : ''}>
+                <td style={`${th};white-space:nowrap`}>{d.what.includes('French') ? '★ ' : ''}{d.date}</td>
+                <td style={th}>{d.place}</td>
+                <td style={th}>{d.who}</td>
+                <td style={th}>{d.what}<br /><span style="font-size:.85rem;color:var(--ink-soft)">“{d.quote}”</span></td>
+                <td style={`${th};font-family:var(--sans);font-size:.8rem`}>
+                  {d.sources.map((s, i) => <>{i > 0 && <br />}<a href={s.url} rel="noopener">{short(s.label)}</a></>)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -161,6 +194,6 @@ const groups = [
     document.querySelectorAll<HTMLAnchorElement>('[data-tab-link]').forEach((a) =>
       a.addEventListener('click', (e) => { e.preventDefault(); show(a.dataset.tabLink!); window.scrollTo({ top: 0 }); })
     );
-    show(location.hash === '#philympia' ? 'philympia' : 'awards');
+    show(['#philympia', '#showings'].includes(location.hash) ? location.hash.slice(1) : 'awards');
   </script>
 </Base>
