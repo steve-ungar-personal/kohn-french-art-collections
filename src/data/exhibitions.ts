@@ -20,9 +20,12 @@ export interface ExhibitRecord {
 }
 
 export const exhibitRecord: ExhibitRecord[] = [
+  { year: '1966', show: 'CHICAGOPEX 1966, the Chicago Philatelic Society’s 80th-anniversary exhibition, Chicago', who: 'Milton', exhibit: 'French arts', award: 'Topical award (best topical exhibit); Milton M. Kohn is also listed among the silver medals', frenchArt: true, quote: 'Other awards: … Topical: Milton M. Kohn (French arts)', source: APRL(84974, 'American Philatelist, Jan 1967, p.293') },
   { year: '1967', show: 'COMPEX, Chicago', who: 'Milton', exhibit: 'Israel first flights', award: 'Silver', quote: 'The hand drawn art work in mounting these covers drew the acclaim of the judges', source: APRL(465335, 'Jack Knight Air Log, May 1967, p.12') },
   { year: '1967', show: 'PARFOREX, Park Forest, Illinois', who: 'Milton', exhibit: 'French art stamps (topical)', award: 'Gold (Grand Award for his Israel exhibit)', frenchArt: true, quote: 'Kohn for his additional topical display of French art stamps', source: APRL(85398, 'American Philatelist, Aug 1967, p.852') },
+  { year: '1968', show: 'TOPEX ’68, American Topical Association convention, Milwaukee, Wisconsin (21–23 June 1968)', who: 'Milton', exhibit: '“Great Arts” (as printed; very probably the French art exhibit)', award: 'Viewers’ Award', frenchArt: true, quote: 'Viewers’ Award: Milton M. Kohn (Great Arts)', source: APRL(402937, 'Wisconsin Federation of Stamp Clubs Bulletin, Fall 1968, p.12') },
   { year: '1970', show: 'PHILYMPIA, London', who: 'Milton', exhibit: 'Famous French Arts', award: 'Sent for exhibition (Kohn’s own inventory)', frenchArt: true, source: { label: 'Milton Kohn’s handwritten inventory (this collection)', url: '/philympia/' } },
+  { year: '1972', show: 'POLPEX 1972, Chicago (4–5 March 1972)', who: 'Milton', exhibit: 'not stated', award: 'Gold medal', quote: 'Gold Medals: Milton M. Kohn, So. Holland, Ill.', source: APRL(252224, 'Polonus Bulletin, March 1972, p.298-3') },
   { year: '1972', show: 'BELGICA ’72, Brussels (international)', who: 'Milton & Janet', exhibit: 'Concentration camp mail', award: 'Bronze', source: APRL(78435, 'American Philatelist, Sept 1972, p.842') },
   { year: '1973', show: 'POLPEX ’73, Chicago', who: 'Milton & Janet', exhibit: '—', award: 'Polonus Gold Medal with Felicitations of the Jury', source: APRL(252366, 'Polonus Bulletin, Apr 1973') },
   { year: '1973', show: 'JERUSALEM ’73 (international)', who: 'Milton & Janet', exhibit: '“The Darkest Period of Mankind”', award: 'Bronze', source: APRL(252408, 'Polonus Bulletin, May 1974') },
