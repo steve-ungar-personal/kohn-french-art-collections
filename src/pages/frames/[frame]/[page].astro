@@ -23,6 +23,10 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
 
     <article class="detail">
       <div class="viewer">
+        <div class="topnav">
+          {prev ? <a href={pageHref(prev)} rel="prev">← Previous page</a> : <span>← Previous page</span>}
+          {next ? <a href={pageHref(next)} rel="next">Next page →</a> : <span>Next page →</span>}
+        </div>
         <button type="button" data-zoom={img.lg} aria-label="View full-size image">
           <div class="mounted">
             <img src={img.md} alt={`Album page: ${p.title}`} width={img.width} height={img.height} />

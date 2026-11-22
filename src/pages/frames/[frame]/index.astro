@@ -24,6 +24,11 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
       <p class="lede">{detail}. {frame.pages.length} pages{n <= 8 ? ', shown in the order they were hung' : ''}.</p>
     </header>
 
+    <div class="topnav">
+      {prev ? <a href={frameHref(prev)} rel="prev">← Previous frame</a> : <span>← Previous frame</span>}
+      {next ? <a href={frameHref(next)} rel="next">Next frame →</a> : <span>Next frame →</span>}
+    </div>
+
     <div class="page-grid">
       {frame.pages.map((p) => (
         <a class="page-card" href={pageHref(p)}>

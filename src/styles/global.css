@@ -140,9 +140,13 @@ section { padding: 56px 0; }
 /* ── Page grid (inside a frame) ─────────────────────── */
 .page-grid { display: grid; gap: 28px 20px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 .page-card { text-decoration: none; color: var(--ink); display: block; }
-.page-card .img { background: var(--card); padding: 8px; box-shadow: var(--shadow); transition: transform 0.15s ease; }
+.page-card .img { background: var(--card); padding: 8px; box-shadow: var(--shadow); transition: transform 0.15s ease; line-height: 0; }
 .page-card:hover .img { transform: translateY(-3px); }
-.page-card .img img { aspect-ratio: 4 / 5; object-fit: cover; object-position: top; width: 100%; }
+.page-card .img img { aspect-ratio: 4 / 5; object-fit: cover; object-position: top; width: 100%; height: auto; display: block; }
+.topnav { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 14px; font-family: var(--sans); font-size: 0.85rem; }
+.topnav a, .topnav span { padding: 7px 14px; border: 1px solid var(--rule); text-decoration: none; color: var(--ink); background: var(--card); }
+.topnav a:hover { color: var(--carmine); border-color: var(--carmine); }
+.topnav span { opacity: 0.4; }
 .page-card .meta { padding: 12px 2px 0; }
 .page-card .n { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
 .page-card h3 { font-size: 1.12rem; margin: 2px 0 6px; line-height: 1.25; }
@@ -159,7 +163,7 @@ section { padding: 56px 0; }
 @media (min-width: 980px) { .detail { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } .detail .viewer { position: sticky; top: 88px; align-self: start; } }
 .viewer button { all: unset; cursor: zoom-in; display: block; width: 100%; }
 .viewer button:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
-.viewer .mounted img { width: 100%; }
+.viewer .mounted img { width: 100%; display: block; }
 .viewer .privacy-note { font-family: var(--sans); font-size: 0.82rem; color: var(--ink-soft); background: var(--paper-2); border-left: 3px solid var(--rose); padding: 8px 12px; margin: 12px 0 0; }
 .viewer .hint { font-family: var(--sans); font-size: 0.8rem; color: var(--ink-soft); margin-top: 10px; text-align: center; }
 .detail h1 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
