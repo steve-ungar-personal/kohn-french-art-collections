@@ -56,8 +56,9 @@ Never commit these files to GitHub (the repo is public).
    ```
 
    `vercel link`: pick team **loser-league**, project
-   **kohn-french-art-collections**. Do not connect it to git — the site is
-   deployed from the CLI on purpose. The first `git push` opens a browser to
+   **kohn-french-art-collections**. Do not connect it to git in Vercel — the
+   GitHub Action (`.github/workflows/deploy.yml`) deploys with the CLI on each
+   push instead. The first `git push` opens a browser to
    sign in to GitHub (Git Credential Manager).
 
 5. Check: `npm run build` succeeds, then open the project in the Claude app
@@ -66,5 +67,6 @@ Never commit these files to GitHub (the repo is public).
 ## 3. Day-to-day maintenance (same as before)
 
 - New images: `npm run images`, add entries in `src/data/pages.ts` (+ `stamps.ts`).
-- Build and deploy: `npm run build`, then `npx vercel deploy --prod`.
-- Commit and push to GitHub after each change.
+- Build to check: `npm run build`.
+- Commit and push to GitHub; the push deploys to Vercel automatically (GitHub
+  Action, `VERCEL_TOKEN` secret). Manual fallback: `npx vercel deploy --prod`.

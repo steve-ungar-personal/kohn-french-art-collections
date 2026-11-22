@@ -4,8 +4,10 @@ Static website presenting Milton Kohn's hand-illustrated exhibition collection o
 (1961–1969): signed artist's proofs, deluxe proofs, first day covers, maximum cards and covers,
 grouped by the eight frames in which it was originally exhibited.
 
-Built with [Astro](https://astro.build) (static output). Hosted on Vercel, deployed from the CLI
-(the Vercel project is not linked to this GitHub repo).
+Built with [Astro](https://astro.build) (static output). Hosted on Vercel. The Vercel project is
+not linked to this GitHub repo; instead `.github/workflows/deploy.yml` runs `vercel deploy --prod`
+on every push to `main` (needs the `VERCEL_TOKEN` repository secret). It can also be run by hand
+from the Actions tab, or from a PC with `npx vercel deploy --prod`.
 
 ## Layout
 
@@ -22,7 +24,7 @@ Built with [Astro](https://astro.build) (static output). Hosted on Vercel, deplo
 1. Put the photos in `frame 5` … `frame 8` (file names sort in shooting order; first photo = frame card).
 2. `npm run images`
 3. Add an entry per page to `src/data/pages.ts` (and any new issues to `src/data/stamps.ts`), plus a theme in `frameThemes`.
-4. `npm run build`, then deploy.
+4. `npm run build` to check, then commit and push; the push deploys.
 
 ## Commands
 
@@ -30,5 +32,5 @@ Built with [Astro](https://astro.build) (static output). Hosted on Vercel, deplo
 npm install
 npm run dev        # http://localhost:4321
 npm run build      # outputs dist/
-vercel deploy --prod
+git push           # GitHub Action deploys to production
 ```
