@@ -3,10 +3,19 @@
 // digital collection (digital.stamplibrary.org) or another public source.
 import type { Source } from './sources';
 
-const APRL = (ptr: number, label: string): Source => ({
-  label: `APRL digital library — ${label}`,
-  url: `https://digital.stamplibrary.org/ContentDmAdmin/ImageProxy.ashx?col=3&ptr=${ptr}&sz=full`,
-});
+// The library's viewer currently opens each issue at its front cover, so the
+// label says which page to turn to. Issues whose Kohn entry is on page 1 need no note.
+const OPENS_AT_ENTRY = new Set([253755, 254272]);
+const APRL = (ptr: number, label: string): Source => {
+  const page = label.match(/\bpp?\.\s?([\d–-]+)/)?.[1];
+  const note = OPENS_AT_ENTRY.has(ptr) ? ''
+    : page ? ` (link opens the issue cover; turn to p. ${page})`
+    : ' (link opens the issue cover; the Kohn entry is inside)';
+  return {
+    label: `APRL digital library — ${label}${note}`,
+    url: `https://digital.stamplibrary.org/ContentDmAdmin/ImageProxy.ashx?col=3&ptr=${ptr}&sz=full`,
+  };
+};
 
 export interface ExhibitRecord {
   year: string;
@@ -17,14 +26,37 @@ export interface ExhibitRecord {
   frenchArt?: boolean;
   quote?: string;
   source: Source;
+  // Scan of the printed page, kept with the collection and shown on this site.
+  scan?: Source;
 }
+
+// Scans of printed documents kept with the collection (rendered from the PDFs
+// in "all images/", which themselves stay off the site).
+const DOC = (file: string) => `/images/documents/${file}`;
+export interface DocScan { md: string; lg: string; width: number; height: number; caption: string; alt: string }
+const scan = (slug: string, height: number, caption: string, alt: string): DocScan =>
+  ({ md: DOC(`${slug}-md.jpg`), lg: DOC(`${slug}-lg.jpg`), width: 1600, height, caption, alt });
+
+export const philympiaScans: DocScan[] = [
+  scan('philympia-catalogue-cover', 2214, 'Cover of the official catalogue, Philympia, London, 18–26 September 1970.', 'Yellow cover of the Philympia 1970 exhibition catalogue'),
+  scan('philympia-catalogue-p72', 2303, 'Catalogue, p. 72 (First Floor, Group 14, Subject Collections): frames 1938–1939, Milton M. Kohn, U.S.A., “French Art: depicted by stamps, first day covers, cancellations and proofs.”', 'Philympia 1970 catalogue page 72 listing Milton M. Kohn’s French Art exhibit at frames 1938–1939'),
+  scan('philympia-awards-p20', 2622, 'Awards list (palmarès), p. 20: under Bronze, frames 1938/1939, Milton M. Kohn, U.S.A., French Art.', 'Philympia 1970 awards list page 20 showing a bronze medal for Milton M. Kohn, French Art'),
+];
+
+export const polpex84Scans: DocScan[] = [
+  scan('polonus-404-p1', 2390, 'Polonus Bulletin no. 404, May–June 1984, p. 404-1: “Bartczak wins POLPEX Grand”. The Reserve Grand Award (President’s Award) and a Polonus Gold Medal went to Janet Kohn for “Concentration Camp Mail”.', 'Front page of the Polonus Bulletin, May–June 1984, reporting POLPEX ’84'),
+  scan('polonus-404-p2', 2390, 'p. 404-2, List of Awards: Gold, Janet Kohn, “Concentration Camp Mail” and the Reserve (President’s) Grand Award; Silver-Bronze, Milton Kohn, “Overrun Countries of World War I”.', 'POLPEX ’84 list of awards in the Polonus Bulletin, May–June 1984'),
+];
+
+const philympiaScan: Source = { label: 'Philympia 1970 catalogue p. 72 and awards list p. 20 (scans)', url: '/philympia/' };
+const polonus404Scan: Source = { label: 'Polonus Bulletin no. 404, pp. 404-1–404-2 (scans)', url: '#polpex84' };
 
 export const exhibitRecord: ExhibitRecord[] = [
   { year: '1966', show: 'CHICAGOPEX 1966, the Chicago Philatelic Society’s 80th-anniversary exhibition, Chicago', who: 'Milton', exhibit: 'French arts', award: 'Topical award (best topical exhibit); Milton M. Kohn is also listed among the silver medals', frenchArt: true, quote: 'Other awards: … Topical: Milton M. Kohn (French arts)', source: APRL(84974, 'American Philatelist, Jan 1967, p.293') },
   { year: '1967', show: 'COMPEX, Chicago', who: 'Milton', exhibit: 'Israel first flights', award: 'Silver', quote: 'The hand drawn art work in mounting these covers drew the acclaim of the judges', source: APRL(465335, 'Jack Knight Air Log, May 1967, p.12') },
   { year: '1967', show: 'PARFOREX, Park Forest, Illinois', who: 'Milton', exhibit: 'French art stamps (topical)', award: 'Gold (Grand Award for his Israel exhibit)', frenchArt: true, quote: 'Kohn for his additional topical display of French art stamps', source: APRL(85398, 'American Philatelist, Aug 1967, p.852') },
   { year: '1968', show: 'TOPEX ’68, American Topical Association convention, Milwaukee, Wisconsin (21–23 June 1968)', who: 'Milton', exhibit: '“Great Arts” (as printed; very probably the French art exhibit)', award: 'Viewers’ Award', frenchArt: true, quote: 'Viewers’ Award: Milton M. Kohn (Great Arts)', source: APRL(402937, 'Wisconsin Federation of Stamp Clubs Bulletin, Fall 1968, p.12') },
-  { year: '1970', show: 'PHILYMPIA, London', who: 'Milton', exhibit: 'Famous French Arts', award: 'Sent for exhibition (Kohn’s own inventory)', frenchArt: true, source: { label: 'Milton Kohn’s handwritten inventory (this collection)', url: '/philympia/' } },
+  { year: '1970', show: 'PHILYMPIA, London (international, 18–26 Sept 1970)', who: 'Milton', exhibit: '“French Art: depicted by stamps, first day covers, cancellations and proofs” (frames 1938–1939)', award: 'Bronze', frenchArt: true, quote: 'Bronze … 1938/1939 Milton M. Kohn, U.S.A. French Art', source: philympiaScan },
   { year: '1972', show: 'POLPEX 1972, Chicago (4–5 March 1972)', who: 'Milton', exhibit: 'not stated', award: 'Gold medal', quote: 'Gold Medals: Milton M. Kohn, So. Holland, Ill.', source: APRL(252224, 'Polonus Bulletin, March 1972, p.298-3') },
   { year: '1972', show: 'BELGICA ’72, Brussels (international)', who: 'Milton & Janet', exhibit: 'Concentration camp mail', award: 'Bronze', source: APRL(78435, 'American Philatelist, Sept 1972, p.842') },
   { year: '1973', show: 'POLPEX ’73, Chicago', who: 'Milton & Janet', exhibit: '—', award: 'Polonus Gold Medal with Felicitations of the Jury', source: APRL(252366, 'Polonus Bulletin, Apr 1973') },
@@ -42,7 +74,7 @@ export const exhibitRecord: ExhibitRecord[] = [
   { year: '1981', show: 'ROCPEX Taipei ’81 (international)', who: 'Milton & Janet', exhibit: '“French Art on Stamps”, and others', award: 'Bronze for French Art on Stamps; Milton served as a U.S. Commissioner', frenchArt: true, quote: 'Bronze, Milton M. Kohn, “French Art on Stamps”', source: APRL(62819, 'American Philatelist, Jan 1982, pp.21–22') },
   { year: '1982', show: 'PHILEXFRANCE 82, Paris (international)', who: 'Milton', exhibit: 'Concentration camp mail; WWII overprints', award: 'Silver-Bronze; Bronze', source: APRL(63425, 'American Philatelist, Sept 1982, p.790') },
   { year: '1983', show: 'POLPEX ’83, Chicago', who: 'Janet', exhibit: '“A Study of Censor Marks”', award: 'Gold', quote: 'Janet S. Kohn, South Holland, IL — A Study of Censor Marks', source: APRL(254168, 'Polonus Bulletin, May–June 1983, p.398-4 (also American Philatelist, Oct 1983, p.956)') },
-  { year: '1984', show: 'POLPEX ’84, Chicago', who: 'Janet', exhibit: 'Concentration Camp Mail', award: 'Reserve Grand Award and Polonus Gold', source: APRL(254272, 'Polonus Bulletin, May–June 1984') },
+  { year: '1984', show: 'POLPEX ’84, Polonus Philatelic Society, S.W.A.P. Hall, Chicago (31 March–1 April 1984)', who: 'Milton & Janet', exhibit: '“Concentration Camp Mail” (Janet); “Overrun Countries of World War I”, as printed (Milton)', award: 'Gold and the Reserve (President’s) Grand Award (Janet); Silver-Bronze (Milton)', source: APRL(254272, 'Polonus Bulletin, May–June 1984'), scan: polonus404Scan },
   { year: '1984', show: 'STaMpsHOW 84, Dallas, Texas (APS national show)', who: 'Milton & Janet', exhibit: '“Posts of the Concentration Camps” (Janet); “Over-Run Countries World War II” (Milton)', award: 'Silver (Janet); Silver-Bronze (Milton)', source: APRL(61227, 'American Philatelist, Oct 1984, p.990') },
 ];
 

@@ -1,12 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import { pages } from '../data/pages';
-import { exhibitRecord, philympiaList, displays } from '../data/exhibitions';
+import { exhibitRecord, philympiaList, displays, philympiaScans, polpex84Scans } from '../data/exhibitions';
+import type { Source } from '../data/sources';
 import { imageFor, pageHref } from '../lib/site';
 
 const frenchArt = exhibitRecord.filter((r) => r.frenchArt);
+const polpex = exhibitRecord.filter((r) => r.show.startsWith('POLPEX'));
+const talk1974 = displays.find((d) => d.date === '11 Jan 1974');
 const th = 'padding:8px;border-bottom:1px solid var(--rule)';
 const short = (l: string) => l.replace('APRL digital library — ', '');
+// Links into another tab switch tabs in place ('#polpex84' is inside the Polish awards tab).
+const tabLink = (s: Source) => (s.url === '/philympia/' ? 'philympia' : s.url === '#polpex84' ? 'polish' : undefined);
+const hrefOf = (s: Source) => (s.url === '/philympia/' ? '#philympia' : s.url);
+const figCaption = 'font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);margin-top:8px';
 
 // First exhibit page (frames 1–9) showing a given stamp, preferring a kind.
 const linkFor = (id: string, prefer?: string) => {
@@ -21,27 +28,30 @@ const groups = [
   ['Additional pages', philympiaList.frame3, 'Deluxe proof'],
 ] as const;
 ---
-<Base title="Exhibitions and awards" description="The documented exhibition record of Milton and Janet Kohn, 1966–1984, and Milton Kohn’s list of the Famous French Arts pages sent to Philympia 1970 in London." section="exhibitions">
+<Base title="Exhibitions and awards" description="The documented exhibition record of Milton and Janet Kohn, 1966–1984, including the bronze medal for Famous French Arts at Philympia 1970 in London, with scans of the catalogue and awards list." section="exhibitions">
   <div class="wrap">
-    <header style="padding: 48px 0 20px; max-width: 800px;">
+    <header style="padding: 48px 0 20px;">
       <p class="eyebrow">The exhibits on the road</p>
       <h1>Exhibitions and awards</h1>
-      <p class="lede">
+      <p class="lede" style="max-width:none">
         <em>Famous French Arts</em> was shown and judged from 1966, soon after Milton Kohn took up stamps, into the early
-        1980s, and in 1970 it went to London for Philympia. Janet Kohn won best in show twice in 1978.
+        1980s. In 1970 it won a bronze medal at Philympia, the international exhibition in London. Janet Kohn won best in show
+        twice in 1978, and in Chicago the Kohns won gold at five POLPEX shows of the Polonus Philatelic Society, the society
+        for Polish philately.
       </p>
     </header>
 
     <div class="tabs" role="tablist" aria-label="Exhibitions">
       <button role="tab" id="tab-awards" aria-controls="awards" aria-selected="true">Awards, 1966–1984</button>
-      <button role="tab" id="tab-showings" aria-controls="showings" aria-selected="false" tabindex="-1">Other showings</button>
       <button role="tab" id="tab-philympia" aria-controls="philympia" aria-selected="false" tabindex="-1">Philympia 1970</button>
+      <button role="tab" id="tab-polish" aria-controls="polish" aria-selected="false" tabindex="-1">Polish awards</button>
+      <button role="tab" id="tab-showings" aria-controls="showings" aria-selected="false" tabindex="-1">Other showings</button>
     </div>
 
     <section id="awards" class="tabpanel" role="tabpanel" aria-labelledby="tab-awards">
-      <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);max-width:800px">
+      <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)">
         Sources are the stamp press of the time, mainly <em>The American Philatelist</em>, the <em>Polonus Bulletin</em> and the
-        <em>Wisconsin Federation of Stamp Clubs Bulletin</em>. Each source link opens the printed page or index entry. Rows marked ★ are
+        <em>Wisconsin Federation of Stamp Clubs Bulletin</em>. Each source link opens the issue in the library’s digital collection; where it opens at the cover, the link says which page to turn to. Rows marked ★ are
         the French art exhibit shown on this site. The others are the Kohns’ postal-history exhibits of concentration-camp mail.
       </p>
       <div style="overflow-x:auto;margin-top:16px">
@@ -60,9 +70,8 @@ const groups = [
                 <td style={th}>{r.exhibit}</td>
                 <td style={th}>{r.award}</td>
                 <td style={`${th};font-family:var(--sans);font-size:.8rem`}>
-                  {r.source.url === '/philympia/'
-                    ? <a href="#philympia" data-tab-link="philympia">{r.source.label}</a>
-                    : <a href={r.source.url} rel="noopener">{short(r.source.label)}</a>}
+                  <a href={hrefOf(r.source)} data-tab-link={tabLink(r.source)} rel="noopener">{short(r.source.label)}</a>
+                  {r.scan && <><br /><a href={hrefOf(r.scan)} data-tab-link={tabLink(r.scan)}>{r.scan.label}</a></>}
                 </td>
               </tr>
             ))}
@@ -73,7 +82,7 @@ const groups = [
       <div class="split" style="margin-top:40px">
         <blockquote class="hand" style="margin:0">
           {frenchArt.filter((r) => r.quote).map((r) => (
-            <p>“{r.quote}.” <a href={r.source.url} style="font-family:var(--sans);font-size:.75rem">{short(r.source.label)}</a></p>
+            <p>“{r.quote}.” <a href={hrefOf(r.source)} data-tab-link={tabLink(r.source)} style="font-family:var(--sans);font-size:.75rem">{short(r.source.label)}</a></p>
           ))}
           <cite>The French art exhibit in the stamp press</cite>
         </blockquote>
@@ -82,7 +91,7 @@ const groups = [
           <p>
             Janet Kohn exhibited in her own right. In November 1978 she won the Grand Award, best in show, at SUPEX ’78, the show of
             the Suburban Collectors Club of Chicago at Brookfield, Illinois, for “Concentration Camp Censor Markings”
-            (<a href="https://digital.stamplibrary.org/ContentDmAdmin/ImageProxy.ashx?col=3&ptr=68959&sz=full">American Philatelist, Jan. 1979, p. 57</a>).
+            (<a href="https://digital.stamplibrary.org/ContentDmAdmin/ImageProxy.ashx?col=3&ptr=68959&sz=full">American Philatelist, Jan. 1979, p. 57</a> (the link opens at the issue cover; turn to p. 57)).
             The following month the <em>Wisconsin Federation of Stamp Clubs Bulletin</em> led its Winter 1978 issue with
             “Best in show to Janet Kohn”, indexed under the University of Wisconsin–Milwaukee Philatelic Society, whose show was held in Milwaukee in December 1978
             (<a href="https://www.wfscstamps.org/ATFP/Bulletin%20subject%20index.pdf#page=212">WFSC Bulletin subject index, p. 212</a>).
@@ -92,13 +101,83 @@ const groups = [
             “French Art on Stamps” won a bronze, Milton was one of the U.S. commissioners; the signed dinner card in the
             <a href="/frames/9/15/">miscellany</a> dates from that trip.
           </p>
+          <p>
+            In 1984 she took a gold medal and the Reserve (President’s) Grand Award at POLPEX ’84, the Polonus Philatelic Society’s
+            show in Chicago, for “Concentration Camp Mail”. Milton won a silver-bronze at the same show
+            (<a href="#polpex84" data-tab-link="polish">Polonus Bulletin, May–June 1984</a>). Her other POLPEX medals are under
+            <a href="#polish" data-tab-link="polish">Polish awards</a>.
+          </p>
         </div>
       </div>
     </section>
 
+    <section id="polish" class="tabpanel" role="tabpanel" aria-labelledby="tab-polish">
+      <p class="eyebrow">Chicago, 1972–1984</p>
+      <h2 style="font-size:1.6rem;margin-top:0">Polish awards: the Polonus Philatelic Society and POLPEX</h2>
+      <p>
+        The Polonus Philatelic Society held its first meeting in Chicago on 26 February 1939 and published its own bulletin from
+        that year. In 1984 it called itself the “largest and oldest society devoted to Polish philately in the free world”, with
+        over 400 members in good standing, and it struck its own Polonus medals for its annual exhibition, POLPEX, held in Chicago
+        (<a href="#polpex84">Polonus Bulletin, May–June 1984, pp. 404-1 and 404-15</a>).
+      </p>
+      <p>
+        Milton and Janet Kohn, of South Holland, Illinois, were regular POLPEX exhibitors. The <em>Polonus Bulletin</em> records
+        them winning gold at five shows, in 1972, 1973, 1980, 1983 and 1984, silver in 1974 and 1976, and in 1984 the Reserve
+        (President’s) Grand Award, the show’s second-highest honour. The 1976 silver was for <em>Famous French Arts</em>, the
+        exhibit on this site; most of the other entries were the Kohns’ concentration-camp mail. Milton also spoke to the
+        society: on 11 January 1974 he gave a talk and display, “Concentration Camp Mail of World War II”, at a Polonus program
+        meeting, which the bulletin described as an excellent talk with extraordinary material
+        (<a href={talk1974?.sources.at(-1)?.url}>Polonus Bulletin, March 1974, p. 320-7</a>).
+      </p>
+      <div style="overflow-x:auto;margin-top:16px">
+        <table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:820px">
+          <thead>
+            <tr style="text-align:left;font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)">
+              <th style={th}>Year</th><th style={th}>Show</th><th style={th}>Exhibitor</th><th style={th}>Exhibit</th><th style={th}>Award</th><th style={th}>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {polpex.map((r) => (
+              <tr style={r.frenchArt ? 'background:#f6ecee' : ''}>
+                <td style={`${th};white-space:nowrap`}>{r.frenchArt ? '★ ' : ''}{r.year}</td>
+                <td style={th}>{r.show}</td>
+                <td style={th}>{r.who}</td>
+                <td style={th}>{r.exhibit}</td>
+                <td style={th}>{r.award}</td>
+                <td style={`${th};font-family:var(--sans);font-size:.8rem`}>
+                  <a href={r.source.url} rel="noopener">{short(r.source.label)}</a>
+                  {r.scan && <><br /><a href={r.scan.url}>{r.scan.label}</a></>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <section id="polpex84" style="margin-top:48px;scroll-margin-top:80px">
+        <p class="eyebrow">From the collection’s papers</p>
+        <h3 style="font-size:1.4rem">POLPEX ’84: the <em>Polonus Bulletin</em> report</h3>
+        <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)">
+          Issue 404 of the bulletin (May–June 1984) reported the show, held on 31 March–1 April 1984 at the S.W.A.P. Hall in Chicago
+          with the 1984 Los Angeles Summer Olympics as its theme, and the society’s 45th-anniversary banquet held during it. The
+          Grand Award went to John Bartczak for his Galicia postal history; Janet Kohn’s “Concentration Camp Mail” took the Reserve
+          (President’s) Grand Award and a Polonus Gold Medal, and Milton’s “Overrun Countries of World War I” (as printed) a
+          silver-bronze. The judges were Dr. James Mazepa, Thomas Fuerst and George Trefonas. Select a page to enlarge it.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:16px">
+          {polpex84Scans.map((d) => (
+            <figure style="margin:0">
+              <a href={d.lg} class="mounted" style="display:block"><img src={d.md} alt={d.alt} width={d.width} height={d.height} loading="lazy" /></a>
+              <figcaption style={figCaption}>{d.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    </section>
+
 
     <section id="showings" class="tabpanel" role="tabpanel" aria-labelledby="tab-showings">
-      <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);max-width:800px">
+      <p style="font-family:var(--sans);font-size:.9rem;color:var(--ink-soft)">
         Not every showing was a competition. Milton Kohn also displayed the collections at talks, museums, colleges and
         synagogues. From the 1980s he mostly showed the Holocaust collection that grew out of the Kohns’ concentration-camp mail,
         “Man’s Inhumanity to Man”, which Janet had encouraged him to build. Each entry quotes its source. Newspaper headlines
@@ -129,13 +208,19 @@ const groups = [
     </section>
 
     <section id="philympia" class="tabpanel" role="tabpanel" aria-labelledby="tab-philympia">
-      <div style="max-width:800px">
+      <div>
         <p class="eyebrow">London, 18–26 September 1970</p>
+        <h2 style="font-size:1.6rem;margin-top:0">A bronze medal in London</h2>
         <p>
-          Kept with the collection are two sheets in Milton Kohn’s hand headed
+          The official Philympia catalogue lists Milton M. Kohn, U.S.A., at frames 1938–1939 on the first floor, in Group 14,
+          Subject Collections: <em>“French Art: depicted by stamps, first day covers, cancellations and proofs.”</em> The exhibition’s
+          awards list places the same two frames among the bronze medals. It is the earliest international award in the Kohns’ record.
+        </p>
+        <p>
+          Kept with the collection are also two sheets in Milton Kohn’s hand headed
           <em>“Famous French Arts sent to ‘Philympia’, the International Stamp Exhibition at Olympia, London, Eng.”</em>
-          They list the pages he shipped to London, frame by frame, with his valuation of each, and are the earliest record of the
-          exhibit travelling abroad. Most of the pages on the list are still in this collection.
+          They list the pages he shipped to London, frame by frame, with his valuation of each. Most of the pages on the list are
+          still in this collection.
         </p>
         <p style="font-family:var(--sans);font-size:.92rem;color:var(--ink-soft)">
           Philympia was the 1970 international stamp exhibition, held at Olympia in London under the patronage of the Fédération
@@ -144,7 +229,15 @@ const groups = [
           <a href="https://www.postalmuseum.org/wp-content/uploads/2018/12/Stamp-History-1970-Philympia.pdf">The Postal Museum</a>).
         </p>
       </div>
-      <div class="split" style="align-items:start;margin-top:24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:24px">
+        {philympiaScans.map((d) => (
+          <figure style="margin:0">
+            <a href={d.lg} class="mounted" style="display:block"><img src={d.md} alt={d.alt} width={d.width} height={d.height} loading="lazy" /></a>
+            <figcaption style={figCaption}>{d.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="split" style="align-items:start;margin-top:48px">
         <div style="display:grid;gap:20px">
           {sheets.map((img, i) => (
             <a href={img.lg} class="mounted" style="display:block">
@@ -191,9 +284,28 @@ const groups = [
         show(next.getAttribute('aria-controls')!, true);
       });
     });
+    // A link (or URL hash) may point at a tab, or at an anchor inside a tab (e.g. #polpex84 in Polish awards).
+    const reveal = (tab: string, anchor?: string) => {
+      show(tab);
+      const el = anchor && anchor !== tab ? document.getElementById(anchor) : null;
+      if (el) el.scrollIntoView(); else window.scrollTo({ top: 0 });
+    };
     document.querySelectorAll<HTMLAnchorElement>('[data-tab-link]').forEach((a) =>
-      a.addEventListener('click', (e) => { e.preventDefault(); show(a.dataset.tabLink!); window.scrollTo({ top: 0 }); })
+      a.addEventListener('click', (e) => { e.preventDefault(); reveal(a.dataset.tabLink!, a.hash.slice(1)); })
     );
-    show(['#philympia', '#showings'].includes(location.hash) ? location.hash.slice(1) : 'awards');
+    const hash = location.hash.slice(1);
+    const tabIds = tabs.map((t) => t.getAttribute('aria-controls')!);
+    const target = hash ? document.getElementById(hash) : null;
+    const owner = target?.closest<HTMLElement>('[role="tabpanel"]')?.id;
+    if (tabIds.includes(hash)) show(hash);
+    else if (owner && owner !== 'awards') {
+      // Scroll again once images have laid out, and stop the browser restoring an old position.
+      history.scrollRestoration = 'manual';
+      reveal(owner, hash);
+      const jump = () => target!.scrollIntoView({ behavior: 'instant' as ScrollBehavior });
+      jump();
+      window.addEventListener('load', () => requestAnimationFrame(jump));
+    }
+    else show('awards');
   </script>
 </Base>
