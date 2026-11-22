@@ -2,7 +2,8 @@
 import Base from '../../../layouts/Base.astro';
 import { pages } from '../../../data/pages';
 import { stamps } from '../../../data/stamps';
-import { imageFor, pageHref, frameHref, neighbours, pad } from '../../../lib/site';
+import { frameThemes } from '../../../data/pages';
+import { imageFor, pageHref, frameHref, neighbours, pad, absUrl, breadcrumbLd, kohnLd, seoTitle, truncateTitle, SITE_NAME } from '../../../lib/site';
 
 export function getStaticPaths() {
   return pages.map((p) => ({ params: { frame: String(p.frame), page: pad(p.index) }, props: { p } }));
@@ -14,8 +15,32 @@ const { prev, next } = neighbours(p);
 const records = p.stamps.map((id) => stamps[id]).filter(Boolean);
 const strip = (s: string) => s.replace(/<[^>]+>/g, '');
 const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour proof'];
+const desc = strip(p.summary);
+// Shortened <title>s must stay unique: where two pages would collide, use the longer word-truncated title.
+const shortTitle = seoTitle(p.title);
+const metaTitle = pages.some((q) => q !== p && seoTitle(q.title) === shortTitle) ? truncateTitle(p.title) : shortTitle;
+const here = pageHref(p);
+const frameName = p.frame <= 8 ? `Frame ${p.frame}` : frameThemes[p.frame].title;
+const jsonLd = [
+  {
+    '@type': 'ImageObject',
+    '@id': `${absUrl(here, Astro.site)}#page-image`,
+    name: p.title,
+    caption: p.title,
+    description: desc,
+    contentUrl: absUrl(img.lg, Astro.site),
+    thumbnailUrl: absUrl(img.thumb, Astro.site),
+    width: img.width,
+    height: img.height,
+    encodingFormat: 'image/webp',
+    creator: kohnLd,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: absUrl('/', Astro.site) },
+    mainEntityOfPage: absUrl(here, Astro.site),
+  },
+  breadcrumbLd([['Home', '/'], [frameName, frameHref(p.frame)], [`Page ${p.index}`, here]], Astro.site),
+];
 ---
-<Base title={p.title} description={strip(p.summary)} image={img.md} section="frames">
+<Base title={p.title} metaTitle={metaTitle} description={desc} image={img.md} imageAlt={`Album page: ${p.title}`} section="frames" jsonLd={jsonLd}>
   <div class="wrap">
     <nav class="crumbs">
       <a href="/">Home</a> / <a href={frameHref(p.frame)}>Frame {p.frame}</a> / Page {p.index}

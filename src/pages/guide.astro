@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { breadcrumbLd } from '../lib/site';
 import { pages } from '../data/pages';
 import { stamps } from '../data/stamps';
 import { S } from '../data/sources';
@@ -61,7 +62,7 @@ Object.values(S).forEach((s) => allSources.set(s.url, s.label));
 pages.forEach((p) => p.sources.forEach((s) => allSources.set(s.url, s.label)));
 const stampList = Object.values(stamps).sort((a, b) => a.yvert.localeCompare(b.yvert));
 ---
-<Base title="Guide to the collection" description="How to read the Kohn album pages: artist’s proofs, deluxe proofs, first day covers, maximum cards and more, with the research sources used on this site." section="guide">
+<Base title="Guide to the collection" description="How to read the Kohn album pages: artist’s proofs, deluxe proofs, first day covers, maximum cards and more, with the research sources used on this site." section="guide" jsonLd={[breadcrumbLd([['Home', '/'], ['Guide to the collection', '/guide/']], Astro.site)]}>
   <div class="wrap">
     <header style="padding: 48px 0 24px; max-width: 760px;">
       <p class="eyebrow">Guide</p>

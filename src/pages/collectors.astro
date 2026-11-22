@@ -1,8 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
-import { imageFor } from '../lib/site';
+import { imageFor, breadcrumbLd, kohnLd } from '../lib/site';
+const jsonLd = [
+  {
+    '@type': 'ProfilePage',
+    mainEntity: { ...kohnLd, jobTitle: 'Architect and stamp collector', homeLocation: { '@type': 'Place', name: 'Chicago, Illinois' } },
+  },
+  { '@type': 'Person', name: 'Janet Kohn', description: 'Philatelic exhibitor; co-exhibited Famous French Arts with Milton Kohn.' },
+  breadcrumbLd([['Home', '/'], ['The collectors', '/collectors/']], Astro.site),
+];
 ---
-<Base title="The collectors" description="Milton and Janet Kohn, the Chicago collectors who assembled and exhibited the Famous French Arts collection." image={imageFor(2, 6).md} section="collectors">
+<Base title="The collectors" description="Milton and Janet Kohn, the Chicago collectors who assembled and exhibited the Famous French Arts collection." image={imageFor(2, 6).md} section="collectors" jsonLd={jsonLd}>
   <section id="collectors" style="padding-top:48px">
     <div class="wrap split">
       <div class="prose">

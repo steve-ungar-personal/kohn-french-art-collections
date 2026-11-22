@@ -1,7 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import { frames, frameThemes } from '../../../data/pages';
-import { imageFor, pageHref, frameHref } from '../../../lib/site';
+import { imageFor, pageHref, frameHref, absUrl, breadcrumbLd, SITE_NAME } from '../../../lib/site';
 
 export function getStaticPaths() {
   return frames.filter((f) => f.pages.length).map((f) => ({ params: { frame: String(f.number) } }));
@@ -14,8 +14,28 @@ const shown = frames.filter((f) => f.pages.length).map((f) => f.number);
 const prev = shown[shown.indexOf(n) - 1];
 const next = shown[shown.indexOf(n) + 1];
 const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour proof'];
+const frameTitle = `Frame ${n}: ${heading}`;
+const jsonLd = [
+  {
+    '@type': 'CollectionPage',
+    name: frameTitle,
+    url: absUrl(frameHref(n), Astro.site),
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: absUrl('/', Astro.site) },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: frame.pages.length,
+      itemListElement: frame.pages.map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: absUrl(pageHref(p), Astro.site),
+        name: p.title,
+      })),
+    },
+  },
+  breadcrumbLd([['Home', '/'], [n <= 8 ? `Frame ${n}` : heading, frameHref(n)]], Astro.site),
+];
 ---
-<Base title={`Frame ${n}: ${heading}`} description={`${detail}. ${frame.pages.length} album pages from the Kohn “Famous French Arts” exhibition.`} image={imageFor(n, 2).md} section="frames">
+<Base title={frameTitle} description={`${detail}. ${frame.pages.length} album pages from the Kohn “Famous French Arts” exhibition.`} image={imageFor(n, 2).md} section="frames" jsonLd={jsonLd}>
   <div class="wrap">
     <nav class="crumbs"><a href="/">Home</a> / <a href="/#frames">Frames</a> / {n <= 8 ? `Frame ${n}` : heading}</nav>
     <header style="padding: 28px 0 36px; max-width: 760px;">
@@ -32,7 +52,7 @@ const proofKinds = ['Signed artist’s proof', 'Deluxe proof', 'Trial colour pro
     <div class="page-grid">
       {frame.pages.map((p) => (
         <a class="page-card" href={pageHref(p)}>
-          <div class="img"><img src={imageFor(p.frame, p.index).thumb} alt="" width="640" height="780" loading="lazy" /></div>
+          <div class="img"><img src={imageFor(p.frame, p.index).thumb} alt={`Album page: ${p.title}`} width="640" height="780" loading="lazy" /></div>
           <div class="meta">
             <span class="n">Page {p.index}</span>
             <h3>{p.title}</h3>

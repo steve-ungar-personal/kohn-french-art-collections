@@ -1,5 +1,6 @@
 ---
 // Philympia now lives in a tab on the Exhibitions page; keep old links working.
+const target = new URL('/exhibitions/', Astro.site).href;
 ---
 <!doctype html>
 <html lang="en">
@@ -7,7 +8,8 @@
     <meta charset="utf-8" />
     <title>Philympia 1970 · Famous French Arts</title>
     <meta http-equiv="refresh" content="0; url=/exhibitions/#philympia" />
-    <link rel="canonical" href="/exhibitions/#philympia" />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={target} />
   </head>
   <body><a href="/exhibitions/#philympia">Philympia 1970</a></body>
 </html>

@@ -15,6 +15,7 @@
     "url": "git+https://github.com/steve-ungar-personal/kohn-french-art-collections.git"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
     "@vercel/analytics": "^2.0.1",
     "astro": "^7.3.5"
   },

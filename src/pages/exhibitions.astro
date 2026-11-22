@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { breadcrumbLd } from '../lib/site';
 import { pages } from '../data/pages';
 import { exhibitRecord, philympiaList, displays, philympiaScans, polpex84Scans } from '../data/exhibitions';
 import type { Source } from '../data/sources';
@@ -28,7 +29,7 @@ const groups = [
   ['Additional pages', philympiaList.frame3, 'Deluxe proof'],
 ] as const;
 ---
-<Base title="Exhibitions and awards" description="The documented exhibition record of Milton and Janet Kohn, 1966–1984, including the bronze medal for Famous French Arts at Philympia 1970 in London, with scans of the catalogue and awards list." section="exhibitions">
+<Base title="Exhibitions and awards" description="The documented exhibition record of Milton and Janet Kohn, 1966–1984, including the bronze medal for Famous French Arts at Philympia 1970 in London, with scans of the catalogue and awards list." section="exhibitions" jsonLd={[breadcrumbLd([['Home', '/'], ['Exhibitions and awards', '/exhibitions/']], Astro.site)]}>
   <div class="wrap">
     <header style="padding: 48px 0 20px;">
       <p class="eyebrow">The exhibits on the road</p>
